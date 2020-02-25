@@ -10,8 +10,11 @@
 
 #include "character.c"
 
+const UINT8 numberCactus = 5;
+int cactusIndex = 0;
+
 struct character dinosaur;
-struct character cactus;
+struct character cactus[5];
 
 UINT8 floorY = 107;
 
@@ -72,29 +75,55 @@ void updateDino()
     fall(&dinosaur);
 }
 
+void displayCactus(int index)
+{
+    cactus[index].x = 50 + (index + 1) * 50;
+    cactus[index].y = floorY;
+
+    cactus[index].speedX = maxCactusSpeedX;
+    cactus[index].speedY = 0;
+
+    cactus[index].characterIndex = index + 1;
+    cactus[index].halfSize = 4;
+
+    set_sprite_tile(index + 1, index + 1);
+    move(cactus[index].characterIndex, cactus[index].x, cactus[index].y);
+}
+
+void moveCactus(int index)
+{
+    cactus[index].x += -cactus[index].speedX;
+    cactus[index].y += cactus[index].speedY;
+
+    scroll_sprite(cactus[index].characterIndex, -cactus[index].speedX, cactus[index].speedY);
+}
+
+void stopCactus(int index)
+{
+    cactus[index].speedX = 0;
+    cactus[index].speedY = 0;
+}
+
 void initCactus()
 {
     set_sprite_data(1, 2, cac);
-
-    cactus.x = 100;
-    cactus.y = floorY;
-
-    cactus.speedX = maxCactusSpeedX;
-    cactus.speedY = 0;
-
-    cactus.characterIndex = 1;
-    cactus.halfSize = 4;
-
-    set_sprite_tile(1, 1);
-    move(cactus.characterIndex, cactus.x, cactus.y);
+    set_sprite_data(2, 3, cac);
+    set_sprite_data(3, 4, cac);
+    set_sprite_data(4, 5, cac);
+    set_sprite_data(5, 6, cac);
+    
+    displayCactus(0);
+    displayCactus(1);
+    displayCactus(2);
+    displayCactus(3);
 }
 
 void updateCactus()
 {
-    cactus.x += -cactus.speedX;
-    cactus.y += cactus.speedY;
-
-    scroll_sprite(cactus.characterIndex, -cactus.speedX, 0);
+    moveCactus(0);
+    moveCactus(1);
+    moveCactus(2);
+    moveCactus(3);
 }
 
 BYTE checkCollision(struct character* character1, struct character* character2)
@@ -176,7 +205,7 @@ void main()
 
     while (TRUE)
     {
-        if (joypad())
+        if (joypad() & J_A)
         {
             if (gameOver == 0)
             {
@@ -192,10 +221,13 @@ void main()
         updateDino();
         updateCactus();
 
-        if (checkCollision(&dinosaur, &cactus) == 1 && gameOver == 0)
+        if (checkCollision(&dinosaur, &cactus[0]) == 1)
         {
-            cactus.speedX = 0;
-            gameOver = 1;
+            if (gameOver == 0)
+            {
+                stopCactus(0);
+                gameOver = 1;
+            }
         }
 
         performantDelay(3);
