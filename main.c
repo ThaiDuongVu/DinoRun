@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include <rand.h>
 #include <stdlib.h>
+#include <gb/font.h>
 
 #include "dino.c"
 #include "cac.c"
@@ -24,6 +25,12 @@ UINT8 maxCactusSpeedX = 2;
 
 BYTE gameOver = 0;
 UINT8 score = 0;
+
+unsigned char scoreMap[] =
+{
+  0x13,0x10,0x17,0x17,0x1A
+};
+
 
 void move(UINT8 characterIndex, UINT8 x, UINT8 y)
 {
@@ -150,9 +157,21 @@ BYTE checkCollision(struct character* character1, struct character* character2)
     return 0;
 }
 
+void initFont()
+{
+    font_t font;
+    font_init();
+
+    font = font_load(font_min);
+    font_set(font);
+
+    set_win_tiles(0, 0, 5, 1, scoreMap);
+    move_win(7, 136);
+}
+
 void initBackground()
 {
-    set_bkg_data(0, 4, mapTile);
+    set_bkg_data(38, 4, mapTile);
     set_bkg_tiles(0, 0, 40, 18, map);
 }
 
@@ -166,6 +185,7 @@ void updateBackground()
 
 void init()
 {
+    initFont();
     initBackground();
 
     initDino();
@@ -197,7 +217,9 @@ void main()
 {
     init();
 
+    SHOW_WIN;
     SHOW_BKG;
+    
     SHOW_SPRITES;
     DISPLAY_ON;
 
