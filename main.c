@@ -10,9 +10,6 @@
 
 #include "character.c"
 
-const UINT8 numberCactus = 5;
-int cactusIndex = 0;
-
 struct character dinosaur;
 struct character cactus[5];
 
@@ -221,15 +218,18 @@ void main()
         updateDino();
         updateCactus();
 
-        if (checkCollision(&dinosaur, &cactus[0]) == 1)
+        if (checkCollision(&dinosaur, &cactus[0]) || checkCollision(&dinosaur, &cactus[1]) || checkCollision(&dinosaur, &cactus[2]) || checkCollision(&dinosaur, &cactus[3]))
         {
             if (gameOver == 0)
             {
                 stopCactus(0);
+                stopCactus(1);
+                stopCactus(2);
+                stopCactus(3);
+                
                 gameOver = 1;
             }
         }
-
         performantDelay(3);
     }
 }
