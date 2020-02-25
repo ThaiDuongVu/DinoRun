@@ -1,6 +1,7 @@
 #include <gb/gb.h>
 #include <stdio.h>
 #include <rand.h>
+#include <stdlib.h>
 
 #include "dino.c"
 #include "cac.c"
@@ -74,7 +75,7 @@ void updateDino()
 
 void displayCactus(int index)
 {
-    cactus[index].x = 50 + (index + 1) * 50;
+    cactus[index].x = 50 + (index + 1) * (50 + (rand() % 10));
     cactus[index].y = floorY;
 
     cactus[index].speedX = maxCactusSpeedX;
@@ -95,10 +96,10 @@ void moveCactus(int index)
     scroll_sprite(cactus[index].characterIndex, -cactus[index].speedX, cactus[index].speedY);
 }
 
-void stopCactus(int index)
+void stop(struct character* character, int index)
 {
-    cactus[index].speedX = 0;
-    cactus[index].speedY = 0;
+    character[index].speedX = 0;
+    character[index].speedY = 0;
 }
 
 void initCactus()
@@ -222,10 +223,12 @@ void main()
         {
             if (gameOver == 0)
             {
-                stopCactus(0);
-                stopCactus(1);
-                stopCactus(2);
-                stopCactus(3);
+                stop(&cactus, 0);
+                stop(&cactus, 1);
+                stop(&cactus, 2);
+                stop(&cactus, 3);
+
+                stop(&dinosaur, 0);
                 
                 gameOver = 1;
             }
