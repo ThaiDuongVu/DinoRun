@@ -28,13 +28,61 @@ UINT8 score = 0;
 
 unsigned char scoreMap[] =
 {
-  0x13,0x10,0x17,0x17,0x1A
+    0x02, 0x02, 0x02, 0x02, 0x02, 0x02
 };
-
 
 void move(UINT8 characterIndex, UINT8 x, UINT8 y)
 {
     move_sprite(characterIndex, x, y);
+}
+
+void performantDelay(UINT8 delay)
+{
+    UINT8 i = 0;
+    for (i = 0; i < delay; i++)
+    {
+        wait_vbl_done();
+    }
+}
+
+void setScore(int condition, int index)
+{
+    switch (condition)
+    {
+    case 0:
+        scoreMap[index] = 0x02;
+        break;
+    case 1:
+        scoreMap[index] = 0x03;
+        break;
+    case 2:
+        scoreMap[index] = 0x04;
+        break;
+    case 3:
+        scoreMap[index] = 0x05;
+        break;
+    case 4:
+        scoreMap[index] = 0x06;
+        break;
+    case 5:
+        scoreMap[index] = 0x07;
+        break;
+    case 6:
+        scoreMap[index] = 0x08;
+        break;
+    case 7:
+        scoreMap[index] = 0x09;
+        break;
+    case 8:
+        scoreMap[index] = 0x0A;
+        break;
+    case 9:
+        scoreMap[index] = 0x0B;
+        break;
+    
+    default:
+        break;
+    }
 }
 
 void fall(struct character* character)
@@ -165,8 +213,25 @@ void initFont()
     font = font_load(font_min);
     font_set(font);
 
-    set_win_tiles(0, 0, 5, 1, scoreMap);
+    set_win_tiles(0, 0, 1, 1, scoreMap);
     move_win(7, 136);
+}
+
+void updateFont()
+{
+    if (score < 10)
+    {
+        setScore(score, 0);
+
+        set_win_tiles(0, 0, 1, 1, scoreMap);
+    }
+    else if (score >= 10 && score < 100)
+    {
+        setScore(score / 10, 0);
+        setScore(score % 10, 1);
+
+        set_win_tiles(0, 0, 2, 1, scoreMap);
+    }
 }
 
 void initBackground()
@@ -195,20 +260,12 @@ void init()
     score = 0;
 }
 
-void performantDelay(UINT8 delay)
-{
-    UINT8 i = 0;
-    for (i = 0; i < delay; i++)
-    {
-        wait_vbl_done();
-    }
-}
-
 void jump(struct character* character)
 {
     if (character->isJumping == 0)
     {
         character->speedY = -maxDinosaurSpeedY;
+        score++;
         character->isJumping = 1;
     }
 }
@@ -237,6 +294,7 @@ void main()
             }
         }
         updateBackground();
+        updateFont();
 
         updateDino();
         updateCactus();
