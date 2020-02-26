@@ -28,7 +28,12 @@ UINT8 score = 0;
 
 unsigned char scoreMap[] =
 {
-    0x02, 0x01, 0x01, 0x01, 0x01, 0x01
+    0x02, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01
+};
+
+unsigned char gameOverMap[] = 
+{
+    0x12, 0x0C, 0x18, 0x10, 0x01, 0x1A, 0X21, 0X10, 0X1D
 };
 
 void move(UINT8 characterIndex, UINT8 x, UINT8 y)
@@ -226,12 +231,16 @@ void initFont()
     scoreMap[2] = 0x01;
     scoreMap[3] = 0x01;
     scoreMap[4] = 0x01;
+    scoreMap[5] = 0x01;
+    scoreMap[6] = 0x01;
+    scoreMap[7] = 0x01;
+    scoreMap[8] = 0x01;
 
-    set_win_tiles(0, 0, 5, 1, scoreMap);
+    set_win_tiles(0, 0, 9, 1, scoreMap);
     move_win(7, 136);
 }
 
-void updateFont()
+void updateScore()
 {
     if (score < 10)
     {
@@ -246,6 +255,11 @@ void updateFont()
 
         set_win_tiles(0, 0, 2, 1, scoreMap);
     }
+}
+
+void gameOverAction()
+{
+    set_win_tiles(0, 0, 9, 1, gameOverMap);
 }
 
 void initBackground()
@@ -315,26 +329,30 @@ void main()
                 init();
             }
         }
-        updateBackground();
-        updateFont();
-
-        updateDino();
-        updateCactus();
-
-        if (checkCollision(&dinosaur, &cactus[0]) || checkCollision(&dinosaur, &cactus[1]) || checkCollision(&dinosaur, &cactus[2]) || checkCollision(&dinosaur, &cactus[3]))
+        if (gameOver == 0)
         {
-            if (gameOver == 0)
+            updateBackground();
+            updateScore();
+
+            updateDino();
+            updateCactus();
+
+            if (checkCollision(&dinosaur, &cactus[0]) || checkCollision(&dinosaur, &cactus[1]) || checkCollision(&dinosaur, &cactus[2]) || checkCollision(&dinosaur, &cactus[3]))
             {
+                
                 stop(&cactus, 0);
                 stop(&cactus, 1);
                 stop(&cactus, 2);
                 stop(&cactus, 3);
 
                 stop(&dinosaur, 0);
-                
+
+                gameOverAction();
                 gameOver = 1;
+                
             }
         }
+        
         performantDelay(3);
     }
 }
