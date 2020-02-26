@@ -130,7 +130,7 @@ void updateDino()
 
 void displayCactus(int index)
 {
-    cactus[index].x = 50 + (index + 1) * (50 + (rand() % 10));
+    cactus[index].x = 50 + (index + 1) * (50 + (rand() % 3));
     cactus[index].y = floorY;
 
     cactus[index].speedX = maxCactusSpeedX;
@@ -147,6 +147,14 @@ void moveCactus(int index)
 {
     cactus[index].x += -cactus[index].speedX;
     cactus[index].y += cactus[index].speedY;
+
+    if (cactus[index].x <= 0)
+    {
+        cactus[index].x = 50 + (index + 1) * (50 + (rand() % 3));
+        set_sprite_tile(index + 1, index + 1);
+
+        move(cactus[index].characterIndex, cactus[index].x, cactus[index].y);
+    }
 
     scroll_sprite(cactus[index].characterIndex, -cactus[index].speedX, cactus[index].speedY);
 }

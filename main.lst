@@ -1,9 +1,9 @@
                               1 ;--------------------------------------------------------
                               2 ; File Created by SDCC : FreeWare ANSI-C Compiler
-                              3 ; Version 2.2.1 Tue Feb 25 18:29:41 2020
+                              3 ; Version 2.2.1 Tue Feb 25 19:26:41 2020
                               4 
                               5 ;--------------------------------------------------------
-                              6 	.module lcc400280
+                              6 	.module lcc307840
                               7 	
                               8 ;--------------------------------------------------------
                               9 ; Public variables in this module
@@ -203,7 +203,7 @@
                             203 	.area _GSINIT
                             204 	.area _GSFINAL
                             205 	.area _GSINIT
-                            206 ;	main.c 319
+                            206 ;	main.c 327
                             207 ; genAssign (pointer)
    0000 11 00 00            208 	ld	de,#_dino + 0
    0003 3E 3E               209 	ld	a,#0x3E
@@ -394,7 +394,7 @@
                             394 ; genAssign (pointer)
    00BD 3E 00               395 	ld	a,#0x00
    00BF 12                  396 	ld	(de),a
-                            397 ;	main.c 319
+                            397 ;	main.c 327
                             398 ; genAssign (pointer)
    00C0 11 20 00            399 	ld	de,#_cac + 0
    00C3 3E 3C               400 	ld	a,#0x3C
@@ -585,7 +585,7 @@
                             585 ; genAssign (pointer)
    017D 3E 00               586 	ld	a,#0x00
    017F 12                  587 	ld	(de),a
-                            588 ;	main.c 319
+                            588 ;	main.c 327
                             589 ; genAssign (pointer)
    0180 11 40 00            590 	ld	de,#_mapTile + 0
    0183 3E 00               591 	ld	a,#0x00
@@ -968,7 +968,7 @@
                             968 ; genAssign (pointer)
    02FD 3E 00               969 	ld	a,#0x00
    02FF 12                  970 	ld	(de),a
-                            971 ;	main.c 319
+                            971 ;	main.c 327
                             972 ; genAssign (pointer)
    0300 11 80 00            973 	ld	de,#_map + 0
    0303 3E 26               974 	ld	a,#0x26
@@ -5287,37 +5287,37 @@
                            5287 ; genAssign (pointer)
    13DD 3E 28              5288 	ld	a,#0x28
    13DF 12                 5289 	ld	(de),a
-                           5290 ;	main.c 319
+                           5290 ;	main.c 327
                            5291 ; genAssign
                            5292 ; AOP_HL for _floorY
    13E0 21 7A 03           5293 	ld	hl,#_floorY + 0
    13E3 36 6B              5294 	ld	(hl),#0x6B
-                           5295 ;	main.c 319
+                           5295 ;	main.c 327
                            5296 ; genAssign
                            5297 ; AOP_HL for _jumpDistance
    13E5 21 7B 03           5298 	ld	hl,#_jumpDistance + 0
    13E8 36 14              5299 	ld	(hl),#0x14
-                           5300 ;	main.c 319
+                           5300 ;	main.c 327
                            5301 ; genAssign
                            5302 ; AOP_HL for _gravity
    13EA 21 7C 03           5303 	ld	hl,#_gravity + 0
    13ED 36 03              5304 	ld	(hl),#0x03
-                           5305 ;	main.c 319
+                           5305 ;	main.c 327
                            5306 ; genAssign
                            5307 ; AOP_HL for _maxCactusSpeedX
    13EF 21 7E 03           5308 	ld	hl,#_maxCactusSpeedX + 0
    13F2 36 02              5309 	ld	(hl),#0x02
-                           5310 ;	main.c 319
+                           5310 ;	main.c 327
                            5311 ; genAssign
                            5312 ; AOP_HL for _gameOver
    13F4 21 7F 03           5313 	ld	hl,#_gameOver + 0
    13F7 36 00              5314 	ld	(hl),#0x00
-                           5315 ;	main.c 319
+                           5315 ;	main.c 327
                            5316 ; genAssign
                            5317 ; AOP_HL for _score
    13F9 21 80 03           5318 	ld	hl,#_score + 0
    13FC 36 00              5319 	ld	(hl),#0x00
-                           5320 ;	main.c 319
+                           5320 ;	main.c 327
                            5321 ; genAssign (pointer)
    13FE 11 81 03           5322 	ld	de,#_scoreMap + 0
    1401 3E 02              5323 	ld	a,#0x02
@@ -6200,7 +6200,7 @@
    02C3 CD 00 00           6200 	call	_rand
    02C6 4B                 6201 	ld	c,e
                            6202 ; genIpush
-   02C7 3E 0A              6203 	ld	a,#0x0A
+   02C7 3E 03              6203 	ld	a,#0x03
    02C9 F5                 6204 	push	af
    02CA 33                 6205 	inc	sp
                            6206 ; genIpush
@@ -6391,14 +6391,14 @@
    0363                    6391 ___moveCactus_start:
    0363                    6392 _moveCactus:
    0363 C5                 6393 	push	bc
-   0364 E8 FA              6394 	lda	sp,-6(sp)
+   0364 E8 F6              6394 	lda	sp,-10(sp)
                            6395 ;	main.c 148
                            6396 ; genIpush
    0366 21 07 00           6397 	ld	hl,#0x0007
    0369 E5                 6398 	push	hl
                            6399 ; genIpush
                            6400 ; AOP_STK for 
-   036A F8 0C              6401 	lda	hl,12(sp)
+   036A F8 10              6401 	lda	hl,16(sp)
    036C 2A                 6402 	ld	a,(hl+)
    036D 66                 6403 	ld	h,(hl)
    036E 6F                 6404 	ld	l,a
@@ -6415,7 +6415,7 @@
    037A 09                 6415 	add	hl,bc
    037B 7D                 6416 	ld	a,l
    037C 54                 6417 	ld	d,h
-   037D F8 03              6418 	lda	hl,3(sp)
+   037D F8 07              6418 	lda	hl,7(sp)
    037F 22                 6419 	ld	(hl+),a
    0380 72                 6420 	ld	(hl),d
                            6421 ; genPointerGet
@@ -6453,1345 +6453,1508 @@
                            6453 ; AOP_STK for _moveCactus_sloc0_1_0
                            6454 ; AOP_STK for _moveCactus_sloc2_1_0
                            6455 ;	genPlusIncr failed
-   0398 F8 05              6456 	lda	hl,5(sp)
+   0398 F8 09              6456 	lda	hl,9(sp)
    039A 7E                 6457 	ld	a,(hl)
-   039B F8 02              6458 	lda	hl,2(sp)
+   039B F8 06              6458 	lda	hl,6(sp)
    039D 86                 6459 	add	a,(hl)
-   039E 47                 6460 	ld	b,a
-                           6461 ; genAssign (pointer)
-                           6462 ; AOP_STK for _moveCactus_sloc1_1_0
-   039F 23                 6463 	inc	hl
-   03A0 5E                 6464 	ld	e,(hl)
-   03A1 23                 6465 	inc	hl
-   03A2 56                 6466 	ld	d,(hl)
-   03A3 78                 6467 	ld	a,b
-   03A4 12                 6468 	ld	(de),a
-                           6469 ;	main.c 149
-                           6470 ; genPlus
-                           6471 ; AOP_STK for _moveCactus_sloc1_1_0
-                           6472 ; AOP_STK for _moveCactus_sloc3_1_0
-                           6473 ; genPlusIncr
-                           6474 ;	genPlusIncr failed
-   03A5 2B                 6475 	dec	hl
-   03A6 5E                 6476 	ld	e,(hl)
-   03A7 23                 6477 	inc	hl
-   03A8 56                 6478 	ld	d,(hl)
-   03A9 21 01 00           6479 	ld	hl,#0x0001
-   03AC 19                 6480 	add	hl,de
-   03AD 7D                 6481 	ld	a,l
-   03AE 54                 6482 	ld	d,h
-   03AF F8 00              6483 	lda	hl,0(sp)
-   03B1 22                 6484 	ld	(hl+),a
-   03B2 72                 6485 	ld	(hl),d
-                           6486 ; genPointerGet
-                           6487 ; AOP_STK for _moveCactus_sloc3_1_0
-                           6488 ; AOP_STK for _moveCactus_sloc0_1_0
-   03B3 2B                 6489 	dec	hl
-   03B4 5E                 6490 	ld	e,(hl)
-   03B5 23                 6491 	inc	hl
-   03B6 56                 6492 	ld	d,(hl)
-   03B7 1A                 6493 	ld	a,(de)
-   03B8 F8 05              6494 	lda	hl,5(sp)
-   03BA 77                 6495 	ld	(hl),a
-                           6496 ; genPlus
-                           6497 ; AOP_STK for _moveCactus_sloc1_1_0
-                           6498 ; genPlusIncr
-                           6499 ;	genPlusIncr failed
-   03BB 2B                 6500 	dec	hl
-   03BC 2B                 6501 	dec	hl
-   03BD 5E                 6502 	ld	e,(hl)
-   03BE 23                 6503 	inc	hl
-   03BF 56                 6504 	ld	d,(hl)
-   03C0 21 03 00           6505 	ld	hl,#0x0003
-   03C3 19                 6506 	add	hl,de
-   03C4 5D                 6507 	ld	e,l
-   03C5 54                 6508 	ld	d,h
-                           6509 ; genPointerGet
-   03C6 1A                 6510 	ld	a,(de)
-   03C7 4F                 6511 	ld	c,a
-                           6512 ; genPlus
-                           6513 ; AOP_STK for _moveCactus_sloc0_1_0
-                           6514 ;	genPlusIncr failed
-   03C8 F8 05              6515 	lda	hl,5(sp)
-   03CA 7E                 6516 	ld	a,(hl)
-   03CB 81                 6517 	add	a,c
-   03CC 47                 6518 	ld	b,a
-                           6519 ; genAssign (pointer)
-                           6520 ; AOP_STK for _moveCactus_sloc3_1_0
-   03CD F8 00              6521 	lda	hl,0(sp)
-   03CF 5E                 6522 	ld	e,(hl)
-   03D0 23                 6523 	inc	hl
-   03D1 56                 6524 	ld	d,(hl)
-   03D2 78                 6525 	ld	a,b
-   03D3 12                 6526 	ld	(de),a
-                           6527 ;	main.c 151
-                           6528 ; genPlus
-                           6529 ; AOP_STK for _moveCactus_sloc1_1_0
-                           6530 ; genPlusIncr
-                           6531 ;	genPlusIncr failed
-   03D4 23                 6532 	inc	hl
-   03D5 23                 6533 	inc	hl
-   03D6 5E                 6534 	ld	e,(hl)
-   03D7 23                 6535 	inc	hl
-   03D8 56                 6536 	ld	d,(hl)
-   03D9 21 05 00           6537 	ld	hl,#0x0005
-   03DC 19                 6538 	add	hl,de
-   03DD 5D                 6539 	ld	e,l
-   03DE 54                 6540 	ld	d,h
-                           6541 ; genPointerGet
-   03DF 1A                 6542 	ld	a,(de)
-   03E0 47                 6543 	ld	b,a
-                           6544 ; genIpush
-   03E1 79                 6545 	ld	a,c
-   03E2 F5                 6546 	push	af
-   03E3 33                 6547 	inc	sp
-                           6548 ; genIpush
-                           6549 ; AOP_STK for _moveCactus_sloc2_1_0
-   03E4 F8 03              6550 	lda	hl,3(sp)
-   03E6 7E                 6551 	ld	a,(hl)
-   03E7 F5                 6552 	push	af
-   03E8 33                 6553 	inc	sp
-                           6554 ; genIpush
-   03E9 78                 6555 	ld	a,b
-   03EA F5                 6556 	push	af
-   03EB 33                 6557 	inc	sp
-                           6558 ; genCall
-   03EC CD 00 00           6559 	call	_scroll_sprite
-   03EF E8 03              6560 	lda	sp,3(sp)
-                           6561 ; genLabel
-   03F1                    6562 00101$:
-                           6563 ; genEndFunction
-   03F1 E8 06              6564 	lda	sp,6(sp)
-   03F3 C1                 6565 	pop	bc
-   03F4 C9                 6566 	ret
-   03F5                    6567 ___moveCactus_end:
-                           6568 ;	main.c 154
-                           6569 ; genLabel
-                           6570 ; genFunction
-                           6571 ;	---------------------------------
-                           6572 ; Function stop
-                           6573 ; ---------------------------------
-   03F5                    6574 ___stop_start:
-   03F5                    6575 _stop:
-   03F5 C5                 6576 	push	bc
-                           6577 	
-                           6578 ;	main.c 156
-                           6579 ; genIpush
-   03F6 21 07 00           6580 	ld	hl,#0x0007
-   03F9 E5                 6581 	push	hl
-                           6582 ; genIpush
-                           6583 ; AOP_STK for 
-   03FA F8 08              6584 	lda	hl,8(sp)
-   03FC 2A                 6585 	ld	a,(hl+)
-   03FD 66                 6586 	ld	h,(hl)
-   03FE 6F                 6587 	ld	l,a
-   03FF E5                 6588 	push	hl
-                           6589 ; genCall
-   0400 CD 00 00           6590 	call	__mulsint
-   0403 42                 6591 	ld	b,d
-   0404 4B                 6592 	ld	c,e
-   0405 E8 04              6593 	lda	sp,4(sp)
-                           6594 ; genPlus
-                           6595 ; AOP_STK for 
-                           6596 ;	genPlusIncr failed
-   0407 F8 04              6597 	lda	hl,4(sp)
-   0409 2A                 6598 	ld	a,(hl+)
-   040A 66                 6599 	ld	h,(hl)
-   040B 6F                 6600 	ld	l,a
-   040C 09                 6601 	add	hl,bc
-   040D 4D                 6602 	ld	c,l
-   040E 44                 6603 	ld	b,h
-                           6604 ; genPlus
-                           6605 ; genPlusIncr
-   040F 59                 6606 	ld	e,c
-   0410 50                 6607 	ld	d,b
-   0411 13                 6608 	inc	de
-   0412 13                 6609 	inc	de
-                           6610 ; genAssign (pointer)
-   0413 3E 00              6611 	ld	a,#0x00
-   0415 12                 6612 	ld	(de),a
-                           6613 ;	main.c 157
-                           6614 ; genPlus
-                           6615 ; genPlusIncr
-                           6616 ;	genPlusIncr failed
-   0416 79                 6617 	ld	a,c
-   0417 C6 03              6618 	add	a,#0x03
-   0419 5F                 6619 	ld	e,a
-   041A 78                 6620 	ld	a,b
-   041B CE 00              6621 	adc	a,#0x00
-   041D 57                 6622 	ld	d,a
-                           6623 ; genAssign (pointer)
-   041E 3E 00              6624 	ld	a,#0x00
-   0420 12                 6625 	ld	(de),a
-                           6626 ; genLabel
-   0421                    6627 00101$:
-                           6628 ; genEndFunction
-                           6629 	
-   0421 C1                 6630 	pop	bc
-   0422 C9                 6631 	ret
-   0423                    6632 ___stop_end:
-                           6633 ;	main.c 160
-                           6634 ; genLabel
-                           6635 ; genFunction
-                           6636 ;	---------------------------------
-                           6637 ; Function initCactus
-                           6638 ; ---------------------------------
-   0423                    6639 ___initCactus_start:
-   0423                    6640 _initCactus:
-                           6641 	
-                           6642 ;	main.c 162
-                           6643 ; genIpush
-   0423 21 20 00           6644 	ld	hl,#_cac + 0
-   0426 E5                 6645 	push	hl
-                           6646 ; genIpush
-   0427 3E 02              6647 	ld	a,#0x02
-   0429 F5                 6648 	push	af
-   042A 33                 6649 	inc	sp
-                           6650 ; genIpush
-   042B 3E 01              6651 	ld	a,#0x01
-   042D F5                 6652 	push	af
-   042E 33                 6653 	inc	sp
-                           6654 ; genCall
-   042F CD 00 00           6655 	call	_set_sprite_data
-   0432 E8 04              6656 	lda	sp,4(sp)
-                           6657 ;	main.c 163
-                           6658 ; genIpush
-   0434 21 20 00           6659 	ld	hl,#_cac + 0
-   0437 E5                 6660 	push	hl
-                           6661 ; genIpush
-   0438 3E 03              6662 	ld	a,#0x03
-   043A F5                 6663 	push	af
-   043B 33                 6664 	inc	sp
-                           6665 ; genIpush
-   043C 3E 02              6666 	ld	a,#0x02
-   043E F5                 6667 	push	af
-   043F 33                 6668 	inc	sp
-                           6669 ; genCall
-   0440 CD 00 00           6670 	call	_set_sprite_data
-   0443 E8 04              6671 	lda	sp,4(sp)
-                           6672 ;	main.c 164
-                           6673 ; genIpush
-   0445 21 20 00           6674 	ld	hl,#_cac + 0
-   0448 E5                 6675 	push	hl
-                           6676 ; genIpush
-   0449 3E 04              6677 	ld	a,#0x04
-   044B F5                 6678 	push	af
-   044C 33                 6679 	inc	sp
+   039E F8 09              6460 	lda	hl,9(sp)
+   03A0 77                 6461 	ld	(hl),a
+                           6462 ; genAssign (pointer)
+                           6463 ; AOP_STK for _moveCactus_sloc1_1_0
+                           6464 ; AOP_STK for _moveCactus_sloc0_1_0
+   03A1 2B                 6465 	dec	hl
+   03A2 2B                 6466 	dec	hl
+   03A3 5E                 6467 	ld	e,(hl)
+   03A4 23                 6468 	inc	hl
+   03A5 56                 6469 	ld	d,(hl)
+   03A6 23                 6470 	inc	hl
+   03A7 7E                 6471 	ld	a,(hl)
+   03A8 12                 6472 	ld	(de),a
+                           6473 ;	main.c 149
+                           6474 ; genPlus
+                           6475 ; AOP_STK for _moveCactus_sloc1_1_0
+                           6476 ; AOP_STK for _moveCactus_sloc4_1_0
+                           6477 ; genPlusIncr
+                           6478 ;	genPlusIncr failed
+   03A9 2B                 6479 	dec	hl
+   03AA 2B                 6480 	dec	hl
+   03AB 5E                 6481 	ld	e,(hl)
+   03AC 23                 6482 	inc	hl
+   03AD 56                 6483 	ld	d,(hl)
+   03AE 21 01 00           6484 	ld	hl,#0x0001
+   03B1 19                 6485 	add	hl,de
+   03B2 7D                 6486 	ld	a,l
+   03B3 54                 6487 	ld	d,h
+   03B4 F8 03              6488 	lda	hl,3(sp)
+   03B6 22                 6489 	ld	(hl+),a
+   03B7 72                 6490 	ld	(hl),d
+                           6491 ; genPointerGet
+                           6492 ; AOP_STK for _moveCactus_sloc4_1_0
+                           6493 ; AOP_STK for _moveCactus_sloc3_1_0
+   03B8 2B                 6494 	dec	hl
+   03B9 5E                 6495 	ld	e,(hl)
+   03BA 23                 6496 	inc	hl
+   03BB 56                 6497 	ld	d,(hl)
+   03BC 1A                 6498 	ld	a,(de)
+   03BD 23                 6499 	inc	hl
+                           6500 ; genPlus
+                           6501 ; AOP_STK for _moveCactus_sloc1_1_0
+                           6502 ; genPlusIncr
+                           6503 ;	genPlusIncr failed
+   03BE 22                 6504 	ld	(hl+),a
+   03BF 23                 6505 	inc	hl
+   03C0 5E                 6506 	ld	e,(hl)
+   03C1 23                 6507 	inc	hl
+   03C2 56                 6508 	ld	d,(hl)
+   03C3 21 03 00           6509 	ld	hl,#0x0003
+   03C6 19                 6510 	add	hl,de
+   03C7 5D                 6511 	ld	e,l
+   03C8 54                 6512 	ld	d,h
+                           6513 ; genPointerGet
+                           6514 ; AOP_STK for _moveCactus_sloc5_1_0
+   03C9 1A                 6515 	ld	a,(de)
+   03CA F8 02              6516 	lda	hl,2(sp)
+   03CC 77                 6517 	ld	(hl),a
+                           6518 ; genPlus
+                           6519 ; AOP_STK for _moveCactus_sloc3_1_0
+                           6520 ; AOP_STK for _moveCactus_sloc5_1_0
+                           6521 ;	genPlusIncr failed
+   03CD F8 05              6522 	lda	hl,5(sp)
+   03CF 7E                 6523 	ld	a,(hl)
+   03D0 F8 02              6524 	lda	hl,2(sp)
+   03D2 86                 6525 	add	a,(hl)
+   03D3 47                 6526 	ld	b,a
+                           6527 ; genAssign (pointer)
+                           6528 ; AOP_STK for _moveCactus_sloc4_1_0
+   03D4 23                 6529 	inc	hl
+   03D5 5E                 6530 	ld	e,(hl)
+   03D6 23                 6531 	inc	hl
+   03D7 56                 6532 	ld	d,(hl)
+   03D8 78                 6533 	ld	a,b
+   03D9 12                 6534 	ld	(de),a
+                           6535 ;	main.c 151
+                           6536 ; genCmpGt
+                           6537 ; AOP_STK for _moveCactus_sloc0_1_0
+   03DA AF                 6538 	xor	a,a
+   03DB 3E 00              6539 	ld	a,#0x00
+   03DD F8 09              6540 	lda	hl,9(sp)
+   03DF 9E                 6541 	sbc	a,(hl) ; 2
+   03E0 DA 63 04           6542 	jp	c,00102$
+                           6543 ;	main.c 153
+                           6544 ; genPlus
+                           6545 ; AOP_STK for 
+                           6546 ; AOP_STK for _moveCactus_sloc6_1_0
+                           6547 ; genPlusIncr
+                           6548 ;	genPlusIncr failed
+   03E3 F8 0E              6549 	lda	hl,14(sp)
+   03E5 5E                 6550 	ld	e,(hl)
+   03E6 23                 6551 	inc	hl
+   03E7 56                 6552 	ld	d,(hl)
+   03E8 21 01 00           6553 	ld	hl,#0x0001
+   03EB 19                 6554 	add	hl,de
+   03EC 7D                 6555 	ld	a,l
+   03ED 54                 6556 	ld	d,h
+   03EE F8 00              6557 	lda	hl,0(sp)
+   03F0 22                 6558 	ld	(hl+),a
+   03F1 72                 6559 	ld	(hl),d
+                           6560 ; genCall
+   03F2 CD 00 00           6561 	call	_rand
+   03F5 4B                 6562 	ld	c,e
+                           6563 ; genIpush
+   03F6 3E 03              6564 	ld	a,#0x03
+   03F8 F5                 6565 	push	af
+   03F9 33                 6566 	inc	sp
+                           6567 ; genIpush
+   03FA 79                 6568 	ld	a,c
+   03FB F5                 6569 	push	af
+   03FC 33                 6570 	inc	sp
+                           6571 ; genCall
+   03FD CD 00 00           6572 	call	__modschar
+   0400 4B                 6573 	ld	c,e
+   0401 E8 02              6574 	lda	sp,2(sp)
+                           6575 ; genPlus
+                           6576 ; genPlusIncr
+                           6577 ;	genPlusIncr failed
+   0403 79                 6578 	ld	a,c
+   0404 C6 32              6579 	add	a,#0x32
+   0406 4F                 6580 	ld	c,a
+                           6581 ; genCast
+                           6582 ; Removed redundent load
+   0407 79                 6583 	ld	a,c
+                           6584 ; genCast: sign extend untested.
+   0408 17                 6585 	rla	
+   0409 9F                 6586 	sbc	a,a
+   040A 47                 6587 	ld	b,a
+                           6588 ; genIpush
+   040B C5                 6589 	push	bc
+                           6590 ; genIpush
+                           6591 ; AOP_STK for _moveCactus_sloc6_1_0
+   040C F8 02              6592 	lda	hl,2(sp)
+   040E 2A                 6593 	ld	a,(hl+)
+   040F 66                 6594 	ld	h,(hl)
+   0410 6F                 6595 	ld	l,a
+   0411 E5                 6596 	push	hl
+                           6597 ; genCall
+   0412 CD 00 00           6598 	call	__mulsint
+   0415 42                 6599 	ld	b,d
+   0416 4B                 6600 	ld	c,e
+   0417 E8 04              6601 	lda	sp,4(sp)
+                           6602 ; genPlus
+                           6603 ; genPlusIncr
+                           6604 ;	genPlusIncr failed
+   0419 79                 6605 	ld	a,c
+   041A C6 32              6606 	add	a,#0x32
+   041C 4F                 6607 	ld	c,a
+   041D 78                 6608 	ld	a,b
+   041E CE 00              6609 	adc	a,#0x00
+   0420 47                 6610 	ld	b,a
+                           6611 ; genCast
+                           6612 ; AOP_STK for _moveCactus_sloc3_1_0
+   0421 F8 05              6613 	lda	hl,5(sp)
+   0423 71                 6614 	ld	(hl),c
+                           6615 ; genAssign (pointer)
+                           6616 ; AOP_STK for _moveCactus_sloc1_1_0
+                           6617 ; AOP_STK for _moveCactus_sloc3_1_0
+   0424 23                 6618 	inc	hl
+   0425 23                 6619 	inc	hl
+   0426 5E                 6620 	ld	e,(hl)
+   0427 23                 6621 	inc	hl
+   0428 56                 6622 	ld	d,(hl)
+   0429 F8 05              6623 	lda	hl,5(sp)
+   042B 7E                 6624 	ld	a,(hl)
+   042C 12                 6625 	ld	(de),a
+                           6626 ;	main.c 154
+                           6627 ; genCast
+                           6628 ; AOP_STK for _moveCactus_sloc6_1_0
+   042D F8 00              6629 	lda	hl,0(sp)
+   042F 4E                 6630 	ld	c,(hl)
+                           6631 ; genIpush
+   0430 79                 6632 	ld	a,c
+   0431 F5                 6633 	push	af
+   0432 33                 6634 	inc	sp
+                           6635 ; genIpush
+   0433 79                 6636 	ld	a,c
+   0434 F5                 6637 	push	af
+   0435 33                 6638 	inc	sp
+                           6639 ; genCall
+   0436 CD 00 00           6640 	call	_set_sprite_tile
+   0439 E8 02              6641 	lda	sp,2(sp)
+                           6642 ;	main.c 156
+                           6643 ; genPointerGet
+                           6644 ; AOP_STK for _moveCactus_sloc4_1_0
+                           6645 ; AOP_STK for _moveCactus_sloc6_1_0
+   043B F8 03              6646 	lda	hl,3(sp)
+   043D 5E                 6647 	ld	e,(hl)
+   043E 23                 6648 	inc	hl
+   043F 56                 6649 	ld	d,(hl)
+   0440 1A                 6650 	ld	a,(de)
+   0441 F8 00              6651 	lda	hl,0(sp)
+   0443 77                 6652 	ld	(hl),a
+                           6653 ; genPlus
+                           6654 ; AOP_STK for _moveCactus_sloc1_1_0
+                           6655 ; genPlusIncr
+                           6656 ;	genPlusIncr failed
+   0444 F8 07              6657 	lda	hl,7(sp)
+   0446 5E                 6658 	ld	e,(hl)
+   0447 23                 6659 	inc	hl
+   0448 56                 6660 	ld	d,(hl)
+   0449 21 05 00           6661 	ld	hl,#0x0005
+   044C 19                 6662 	add	hl,de
+   044D 5D                 6663 	ld	e,l
+   044E 54                 6664 	ld	d,h
+                           6665 ; genPointerGet
+   044F 1A                 6666 	ld	a,(de)
+   0450 4F                 6667 	ld	c,a
+                           6668 ; genIpush
+                           6669 ; AOP_STK for _moveCactus_sloc6_1_0
+   0451 F8 00              6670 	lda	hl,0(sp)
+   0453 7E                 6671 	ld	a,(hl)
+   0454 F5                 6672 	push	af
+   0455 33                 6673 	inc	sp
+                           6674 ; genIpush
+                           6675 ; AOP_STK for _moveCactus_sloc3_1_0
+   0456 F8 06              6676 	lda	hl,6(sp)
+   0458 7E                 6677 	ld	a,(hl)
+   0459 F5                 6678 	push	af
+   045A 33                 6679 	inc	sp
                            6680 ; genIpush
-   044D 3E 03              6681 	ld	a,#0x03
-   044F F5                 6682 	push	af
-   0450 33                 6683 	inc	sp
+   045B 79                 6681 	ld	a,c
+   045C F5                 6682 	push	af
+   045D 33                 6683 	inc	sp
                            6684 ; genCall
-   0451 CD 00 00           6685 	call	_set_sprite_data
-   0454 E8 04              6686 	lda	sp,4(sp)
-                           6687 ;	main.c 165
-                           6688 ; genIpush
-   0456 21 20 00           6689 	ld	hl,#_cac + 0
-   0459 E5                 6690 	push	hl
-                           6691 ; genIpush
-   045A 3E 05              6692 	ld	a,#0x05
-   045C F5                 6693 	push	af
-   045D 33                 6694 	inc	sp
-                           6695 ; genIpush
-   045E 3E 04              6696 	ld	a,#0x04
-   0460 F5                 6697 	push	af
-   0461 33                 6698 	inc	sp
-                           6699 ; genCall
-   0462 CD 00 00           6700 	call	_set_sprite_data
-   0465 E8 04              6701 	lda	sp,4(sp)
-                           6702 ;	main.c 166
-                           6703 ; genIpush
-   0467 21 20 00           6704 	ld	hl,#_cac + 0
-   046A E5                 6705 	push	hl
-                           6706 ; genIpush
-   046B 3E 06              6707 	ld	a,#0x06
-   046D F5                 6708 	push	af
-   046E 33                 6709 	inc	sp
-                           6710 ; genIpush
-   046F 3E 05              6711 	ld	a,#0x05
-   0471 F5                 6712 	push	af
-   0472 33                 6713 	inc	sp
-                           6714 ; genCall
-   0473 CD 00 00           6715 	call	_set_sprite_data
-   0476 E8 04              6716 	lda	sp,4(sp)
-                           6717 ;	main.c 168
-                           6718 ; genIpush
-   0478 21 00 00           6719 	ld	hl,#0x0000
-   047B E5                 6720 	push	hl
+   045E CD 00 00           6685 	call	_move
+   0461 E8 03              6686 	lda	sp,3(sp)
+                           6687 ; genLabel
+   0463                    6688 00102$:
+                           6689 ;	main.c 159
+                           6690 ; genPlus
+                           6691 ; AOP_STK for _moveCactus_sloc1_1_0
+                           6692 ; genPlusIncr
+                           6693 ;	genPlusIncr failed
+   0463 F8 07              6694 	lda	hl,7(sp)
+   0465 5E                 6695 	ld	e,(hl)
+   0466 23                 6696 	inc	hl
+   0467 56                 6697 	ld	d,(hl)
+   0468 21 05 00           6698 	ld	hl,#0x0005
+   046B 19                 6699 	add	hl,de
+   046C 5D                 6700 	ld	e,l
+   046D 54                 6701 	ld	d,h
+                           6702 ; genPointerGet
+   046E 1A                 6703 	ld	a,(de)
+   046F 4F                 6704 	ld	c,a
+                           6705 ; genIpush
+                           6706 ; AOP_STK for _moveCactus_sloc5_1_0
+   0470 F8 02              6707 	lda	hl,2(sp)
+   0472 7E                 6708 	ld	a,(hl)
+   0473 F5                 6709 	push	af
+   0474 33                 6710 	inc	sp
+                           6711 ; genIpush
+                           6712 ; AOP_STK for _moveCactus_sloc2_1_0
+   0475 F8 07              6713 	lda	hl,7(sp)
+   0477 7E                 6714 	ld	a,(hl)
+   0478 F5                 6715 	push	af
+   0479 33                 6716 	inc	sp
+                           6717 ; genIpush
+   047A 79                 6718 	ld	a,c
+   047B F5                 6719 	push	af
+   047C 33                 6720 	inc	sp
                            6721 ; genCall
-   047C CD 96 02           6722 	call	_displayCactus
-   047F E8 02              6723 	lda	sp,2(sp)
-                           6724 ;	main.c 169
-                           6725 ; genIpush
-   0481 21 01 00           6726 	ld	hl,#0x0001
-   0484 E5                 6727 	push	hl
-                           6728 ; genCall
-   0485 CD 96 02           6729 	call	_displayCactus
-   0488 E8 02              6730 	lda	sp,2(sp)
-                           6731 ;	main.c 170
-                           6732 ; genIpush
-   048A 21 02 00           6733 	ld	hl,#0x0002
-   048D E5                 6734 	push	hl
-                           6735 ; genCall
-   048E CD 96 02           6736 	call	_displayCactus
-   0491 E8 02              6737 	lda	sp,2(sp)
-                           6738 ;	main.c 171
-                           6739 ; genIpush
-   0493 21 03 00           6740 	ld	hl,#0x0003
-   0496 E5                 6741 	push	hl
-                           6742 ; genCall
-   0497 CD 96 02           6743 	call	_displayCactus
-   049A E8 02              6744 	lda	sp,2(sp)
-                           6745 ; genLabel
-   049C                    6746 00101$:
-                           6747 ; genEndFunction
-                           6748 	
-   049C C9                 6749 	ret
-   049D                    6750 ___initCactus_end:
-                           6751 ;	main.c 174
-                           6752 ; genLabel
-                           6753 ; genFunction
-                           6754 ;	---------------------------------
-                           6755 ; Function updateCactus
-                           6756 ; ---------------------------------
-   049D                    6757 ___updateCactus_start:
-   049D                    6758 _updateCactus:
-                           6759 	
-                           6760 ;	main.c 176
-                           6761 ; genIpush
-   049D 21 00 00           6762 	ld	hl,#0x0000
-   04A0 E5                 6763 	push	hl
-                           6764 ; genCall
-   04A1 CD 63 03           6765 	call	_moveCactus
-   04A4 E8 02              6766 	lda	sp,2(sp)
-                           6767 ;	main.c 177
-                           6768 ; genIpush
-   04A6 21 01 00           6769 	ld	hl,#0x0001
-   04A9 E5                 6770 	push	hl
-                           6771 ; genCall
-   04AA CD 63 03           6772 	call	_moveCactus
-   04AD E8 02              6773 	lda	sp,2(sp)
-                           6774 ;	main.c 178
-                           6775 ; genIpush
-   04AF 21 02 00           6776 	ld	hl,#0x0002
-   04B2 E5                 6777 	push	hl
-                           6778 ; genCall
-   04B3 CD 63 03           6779 	call	_moveCactus
-   04B6 E8 02              6780 	lda	sp,2(sp)
-                           6781 ;	main.c 179
-                           6782 ; genIpush
-   04B8 21 03 00           6783 	ld	hl,#0x0003
-   04BB E5                 6784 	push	hl
-                           6785 ; genCall
-   04BC CD 63 03           6786 	call	_moveCactus
-   04BF E8 02              6787 	lda	sp,2(sp)
-                           6788 ; genLabel
-   04C1                    6789 00101$:
-                           6790 ; genEndFunction
-                           6791 	
-   04C1 C9                 6792 	ret
-   04C2                    6793 ___updateCactus_end:
-                           6794 ;	main.c 182
-                           6795 ; genLabel
-                           6796 ; genFunction
-                           6797 ;	---------------------------------
-                           6798 ; Function checkCollision
-                           6799 ; ---------------------------------
-   04C2                    6800 ___checkCollision_start:
-   04C2                    6801 _checkCollision:
-   04C2 C5                 6802 	push	bc
-   04C3 E8 F5              6803 	lda	sp,-11(sp)
-                           6804 ;	main.c 184
-                           6805 ; genAssign
-                           6806 ; AOP_STK for _checkCollision_collideX_1_1
-   04C5 F8 0A              6807 	lda	hl,10(sp)
-   04C7 36 00              6808 	ld	(hl),#0x00
-                           6809 ;	main.c 185
-                           6810 ; genAssign
-                           6811 ; AOP_STK for _checkCollision_collideY_1_1
-   04C9 2B                 6812 	dec	hl
-   04CA 36 00              6813 	ld	(hl),#0x00
-                           6814 ;	main.c 187
-                           6815 ; genAssign
-                           6816 ; AOP_STK for 
-                           6817 ; AOP_STK for _checkCollision_sloc1_1_0
-   04CC F8 0F              6818 	lda	hl,15(sp)
-   04CE 2A                 6819 	ld	a,(hl+)
-   04CF 5E                 6820 	ld	e,(hl)
-   04D0 F8 06              6821 	lda	hl,6(sp)
-   04D2 22                 6822 	ld	(hl+),a
-   04D3 73                 6823 	ld	(hl),e
-                           6824 ; genPointerGet
-                           6825 ; AOP_STK for _checkCollision_sloc1_1_0
-                           6826 ; AOP_STK for _checkCollision_sloc0_1_0
-   04D4 2B                 6827 	dec	hl
-   04D5 5E                 6828 	ld	e,(hl)
-   04D6 23                 6829 	inc	hl
-   04D7 56                 6830 	ld	d,(hl)
-   04D8 1A                 6831 	ld	a,(de)
-   04D9 23                 6832 	inc	hl
-   04DA 77                 6833 	ld	(hl),a
-                           6834 ; genPlus
-                           6835 ; AOP_STK for _checkCollision_sloc1_1_0
-                           6836 ; genPlusIncr
-                           6837 ;	genPlusIncr failed
-   04DB 2B                 6838 	dec	hl
-   04DC 2B                 6839 	dec	hl
-   04DD 5E                 6840 	ld	e,(hl)
-   04DE 23                 6841 	inc	hl
-   04DF 56                 6842 	ld	d,(hl)
-   04E0 21 06 00           6843 	ld	hl,#0x0006
-   04E3 19                 6844 	add	hl,de
-   04E4 5D                 6845 	ld	e,l
-   04E5 54                 6846 	ld	d,h
-                           6847 ; genPointerGet
-                           6848 ; AOP_STK for _checkCollision_sloc3_1_0
-   04E6 1A                 6849 	ld	a,(de)
-   04E7 F8 04              6850 	lda	hl,4(sp)
-   04E9 77                 6851 	ld	(hl),a
-                           6852 ; genPlus
-                           6853 ; AOP_STK for _checkCollision_sloc0_1_0
-                           6854 ; AOP_STK for _checkCollision_sloc3_1_0
-                           6855 ; AOP_STK for _checkCollision_sloc2_1_0
-                           6856 ;	genPlusIncr failed
-   04EA F8 08              6857 	lda	hl,8(sp)
-   04EC 7E                 6858 	ld	a,(hl)
-   04ED F8 04              6859 	lda	hl,4(sp)
-   04EF 86                 6860 	add	a,(hl)
-   04F0 23                 6861 	inc	hl
-   04F1 77                 6862 	ld	(hl),a
-                           6863 ; genAssign
-                           6864 ; AOP_STK for 
-                           6865 ; AOP_STK for _checkCollision_sloc5_1_0
-   04F2 F8 11              6866 	lda	hl,17(sp)
-   04F4 2A                 6867 	ld	a,(hl+)
-   04F5 5E                 6868 	ld	e,(hl)
-   04F6 F8 01              6869 	lda	hl,1(sp)
-   04F8 22                 6870 	ld	(hl+),a
-   04F9 73                 6871 	ld	(hl),e
-                           6872 ; genPointerGet
-                           6873 ; AOP_STK for _checkCollision_sloc5_1_0
-                           6874 ; AOP_STK for _checkCollision_sloc4_1_0
-   04FA 2B                 6875 	dec	hl
-   04FB 5E                 6876 	ld	e,(hl)
-   04FC 23                 6877 	inc	hl
-   04FD 56                 6878 	ld	d,(hl)
-   04FE 1A                 6879 	ld	a,(de)
-   04FF 23                 6880 	inc	hl
-   0500 77                 6881 	ld	(hl),a
-                           6882 ; genPlus
-                           6883 ; AOP_STK for _checkCollision_sloc5_1_0
-                           6884 ; genPlusIncr
-                           6885 ;	genPlusIncr failed
-   0501 2B                 6886 	dec	hl
-   0502 2B                 6887 	dec	hl
-   0503 5E                 6888 	ld	e,(hl)
-   0504 23                 6889 	inc	hl
-   0505 56                 6890 	ld	d,(hl)
-   0506 21 06 00           6891 	ld	hl,#0x0006
-   0509 19                 6892 	add	hl,de
-   050A 5D                 6893 	ld	e,l
-   050B 54                 6894 	ld	d,h
-                           6895 ; genPointerGet
-                           6896 ; AOP_STK for _checkCollision_sloc6_1_0
-   050C 1A                 6897 	ld	a,(de)
-   050D F8 00              6898 	lda	hl,0(sp)
-   050F 77                 6899 	ld	(hl),a
-                           6900 ; genMinus
-                           6901 ; AOP_STK for _checkCollision_sloc4_1_0
-                           6902 ; AOP_STK for _checkCollision_sloc6_1_0
-   0510 F8 03              6903 	lda	hl,3(sp)
-   0512 7E                 6904 	ld	a,(hl)
-   0513 F8 00              6905 	lda	hl,0(sp)
-   0515 96                 6906 	sub	a,(hl)
-   0516 47                 6907 	ld	b,a
-                           6908 ; genCmpGt
-                           6909 ; AOP_STK for _checkCollision_sloc2_1_0
-   0517 AF                 6910 	xor	a,a
-   0518 78                 6911 	ld	a,b
-   0519 F8 05              6912 	lda	hl,5(sp)
-   051B 9E                 6913 	sbc	a,(hl) ; 2
-   051C D2 3A 05           6914 	jp	nc,00104$
-                           6915 ;	main.c 189
-                           6916 ; genMinus
-                           6917 ; AOP_STK for _checkCollision_sloc0_1_0
-                           6918 ; AOP_STK for _checkCollision_sloc3_1_0
-                           6919 ; AOP_STK for _checkCollision_sloc2_1_0
-   051F F8 08              6920 	lda	hl,8(sp)
-   0521 7E                 6921 	ld	a,(hl)
-   0522 F8 04              6922 	lda	hl,4(sp)
-   0524 96                 6923 	sub	a,(hl)
-   0525 23                 6924 	inc	hl
-   0526 77                 6925 	ld	(hl),a
-                           6926 ; genPlus
-                           6927 ; AOP_STK for _checkCollision_sloc4_1_0
-                           6928 ; AOP_STK for _checkCollision_sloc6_1_0
-                           6929 ;	genPlusIncr failed
-   0527 2B                 6930 	dec	hl
-   0528 2B                 6931 	dec	hl
-   0529 7E                 6932 	ld	a,(hl)
-   052A F8 00              6933 	lda	hl,0(sp)
-   052C 86                 6934 	add	a,(hl)
-   052D 47                 6935 	ld	b,a
-                           6936 ; genCmpLt
-                           6937 ; AOP_STK for _checkCollision_sloc2_1_0
-   052E AF                 6938 	xor	a,a
-   052F F8 05              6939 	lda	hl,5(sp)
-   0531 7E                 6940 	ld	a,(hl)
-   0532 98                 6941 	sbc	a,b ; 2
-   0533 D2 3A 05           6942 	jp	nc,00104$
-                           6943 ;	main.c 191
-                           6944 ; genAssign
-                           6945 ; AOP_STK for _checkCollision_collideX_1_1
-   0536 F8 0A              6946 	lda	hl,10(sp)
-   0538 36 01              6947 	ld	(hl),#0x01
-                           6948 ; genLabel
-   053A                    6949 00104$:
-                           6950 ;	main.c 194
-                           6951 ; genPlus
-                           6952 ; AOP_STK for _checkCollision_sloc1_1_0
-                           6953 ; genPlusIncr
-   053A F8 06              6954 	lda	hl,6(sp)
-   053C 5E                 6955 	ld	e,(hl)
-   053D 23                 6956 	inc	hl
-   053E 56                 6957 	ld	d,(hl)
-   053F 13                 6958 	inc	de
-                           6959 ; genPointerGet
-                           6960 ; AOP_STK for _checkCollision_sloc2_1_0
-   0540 1A                 6961 	ld	a,(de)
-   0541 2B                 6962 	dec	hl
-   0542 2B                 6963 	dec	hl
-   0543 77                 6964 	ld	(hl),a
-                           6965 ; genPlus
-                           6966 ; AOP_STK for _checkCollision_sloc2_1_0
-                           6967 ; AOP_STK for _checkCollision_sloc3_1_0
-                           6968 ; AOP_STK for _checkCollision_sloc4_1_0
-                           6969 ;	genPlusIncr failed
-   0544 7E                 6970 	ld	a,(hl)
-   0545 2B                 6971 	dec	hl
-   0546 86                 6972 	add	a,(hl)
-   0547 2B                 6973 	dec	hl
-   0548 77                 6974 	ld	(hl),a
-                           6975 ; genPlus
-                           6976 ; AOP_STK for _checkCollision_sloc5_1_0
-                           6977 ; genPlusIncr
-   0549 2B                 6978 	dec	hl
-   054A 2B                 6979 	dec	hl
-   054B 5E                 6980 	ld	e,(hl)
-   054C 23                 6981 	inc	hl
-   054D 56                 6982 	ld	d,(hl)
-   054E 13                 6983 	inc	de
-                           6984 ; genPointerGet
-   054F 1A                 6985 	ld	a,(de)
-   0550 4F                 6986 	ld	c,a
-                           6987 ; genMinus
-                           6988 ; AOP_STK for _checkCollision_sloc6_1_0
-   0551 79                 6989 	ld	a,c
-   0552 2B                 6990 	dec	hl
-   0553 2B                 6991 	dec	hl
-   0554 96                 6992 	sub	a,(hl)
-   0555 47                 6993 	ld	b,a
-                           6994 ; genCmpGt
-                           6995 ; AOP_STK for _checkCollision_sloc4_1_0
-   0556 AF                 6996 	xor	a,a
-   0557 78                 6997 	ld	a,b
-   0558 F8 03              6998 	lda	hl,3(sp)
-   055A 9E                 6999 	sbc	a,(hl) ; 2
-   055B D2 73 05           7000 	jp	nc,00108$
-                           7001 ;	main.c 196
-                           7002 ; genMinus
-                           7003 ; AOP_STK for _checkCollision_sloc2_1_0
-                           7004 ; AOP_STK for _checkCollision_sloc3_1_0
-   055E 23                 7005 	inc	hl
-   055F 23                 7006 	inc	hl
-   0560 7E                 7007 	ld	a,(hl)
-   0561 2B                 7008 	dec	hl
-   0562 96                 7009 	sub	a,(hl)
-   0563 47                 7010 	ld	b,a
-                           7011 ; genPlus
-                           7012 ; AOP_STK for _checkCollision_sloc6_1_0
-                           7013 ;	genPlusIncr failed
-   0564 79                 7014 	ld	a,c
-   0565 F8 00              7015 	lda	hl,0(sp)
-   0567 86                 7016 	add	a,(hl)
-   0568 4F                 7017 	ld	c,a
-                           7018 ; genCmpLt
-   0569 AF                 7019 	xor	a,a
-   056A 78                 7020 	ld	a,b
-   056B 99                 7021 	sbc	a,c ; 2
-   056C D2 73 05           7022 	jp	nc,00108$
-                           7023 ;	main.c 198
-                           7024 ; genAssign
-                           7025 ; AOP_STK for _checkCollision_collideY_1_1
-   056F F8 09              7026 	lda	hl,9(sp)
-   0571 36 01              7027 	ld	(hl),#0x01
-                           7028 ; genLabel
-   0573                    7029 00108$:
-                           7030 ;	main.c 201
-                           7031 ; genCmpEq
-                           7032 ; AOP_STK for _checkCollision_collideX_1_1
-   0573 F8 0A              7033 	lda	hl,10(sp)
-   0575 7E                 7034 	ld	a,(hl) ; 2
-   0576 FE 01              7035 	cp	a,#0x01
-   0578 C2 7D 05           7036 	jp	nz,00120$
-   057B 18 03              7037 	jr	00121$
-   057D                    7038 00120$:
-   057D C3 92 05           7039 	jp	00110$
-   0580                    7040 00121$:
-                           7041 ; genCmpEq
-                           7042 ; AOP_STK for _checkCollision_collideY_1_1
-   0580 F8 09              7043 	lda	hl,9(sp)
-   0582 7E                 7044 	ld	a,(hl) ; 2
-   0583 FE 01              7045 	cp	a,#0x01
-   0585 C2 8A 05           7046 	jp	nz,00122$
-   0588 18 03              7047 	jr	00123$
-   058A                    7048 00122$:
-   058A C3 92 05           7049 	jp	00110$
-   058D                    7050 00123$:
-                           7051 ;	main.c 203
-                           7052 ; genRet
-   058D 1E 01              7053 	ld	e,#0x01
-   058F C3 94 05           7054 	jp	00112$
-                           7055 ; genLabel
-   0592                    7056 00110$:
-                           7057 ;	main.c 205
-                           7058 ; genRet
-   0592 1E 00              7059 	ld	e,#0x00
-                           7060 ; genLabel
-   0594                    7061 00112$:
-                           7062 ; genEndFunction
-   0594 E8 0B              7063 	lda	sp,11(sp)
-   0596 C1                 7064 	pop	bc
-   0597 C9                 7065 	ret
-   0598                    7066 ___checkCollision_end:
-                           7067 ;	main.c 208
-                           7068 ; genLabel
-                           7069 ; genFunction
-                           7070 ;	---------------------------------
-                           7071 ; Function initFont
-                           7072 ; ---------------------------------
-   0598                    7073 ___initFont_start:
-   0598                    7074 _initFont:
-   0598 C5                 7075 	push	bc
-                           7076 	
-                           7077 ;	main.c 211
-                           7078 ; genCall
-   0599 CD 00 00           7079 	call	_font_init
-                           7080 ;	main.c 213
-                           7081 ; genIpush
-   059C 21 00 00           7082 	ld	hl,#_font_min + 0
-   059F E5                 7083 	push	hl
-                           7084 ; genCall
-   05A0 CD 00 00           7085 	call	_font_load
-   05A3 42                 7086 	ld	b,d
-   05A4 4B                 7087 	ld	c,e
-   05A5 E8 02              7088 	lda	sp,2(sp)
-                           7089 ;	main.c 214
-                           7090 ; genIpush
-   05A7 C5                 7091 	push	bc
-                           7092 ; genCall
-   05A8 CD 00 00           7093 	call	_font_set
-   05AB E8 02              7094 	lda	sp,2(sp)
-                           7095 ;	main.c 216
-                           7096 ; genIpush
-   05AD 21 81 03           7097 	ld	hl,#_scoreMap + 0
-   05B0 E5                 7098 	push	hl
-                           7099 ; genIpush
-   05B1 3E 01              7100 	ld	a,#0x01
-   05B3 F5                 7101 	push	af
-   05B4 33                 7102 	inc	sp
-                           7103 ; genIpush
-   05B5 3E 01              7104 	ld	a,#0x01
-   05B7 F5                 7105 	push	af
-   05B8 33                 7106 	inc	sp
-                           7107 ; genIpush
-   05B9 3E 00              7108 	ld	a,#0x00
-   05BB F5                 7109 	push	af
-   05BC 33                 7110 	inc	sp
-                           7111 ; genIpush
-   05BD 3E 00              7112 	ld	a,#0x00
-   05BF F5                 7113 	push	af
-   05C0 33                 7114 	inc	sp
-                           7115 ; genCall
-   05C1 CD 00 00           7116 	call	_set_win_tiles
-   05C4 E8 06              7117 	lda	sp,6(sp)
-                           7118 ;	main.c 217
-                           7119 ; genIpush
-   05C6 3E 88              7120 	ld	a,#0x88
-   05C8 F5                 7121 	push	af
-   05C9 33                 7122 	inc	sp
-                           7123 ; genIpush
-   05CA 3E 07              7124 	ld	a,#0x07
-   05CC F5                 7125 	push	af
-   05CD 33                 7126 	inc	sp
-                           7127 ; genCall
-   05CE CD 00 00           7128 	call	_move_win
-   05D1 E8 02              7129 	lda	sp,2(sp)
-                           7130 ; genLabel
-   05D3                    7131 00101$:
-                           7132 ; genEndFunction
-                           7133 	
-   05D3 C1                 7134 	pop	bc
-   05D4 C9                 7135 	ret
-   05D5                    7136 ___initFont_end:
-                           7137 ;	main.c 220
-                           7138 ; genLabel
-                           7139 ; genFunction
-                           7140 ;	---------------------------------
-                           7141 ; Function updateFont
-                           7142 ; ---------------------------------
-   05D5                    7143 ___updateFont_start:
-   05D5                    7144 _updateFont:
-   05D5 C5                 7145 	push	bc
-   05D6 E8 FF              7146 	lda	sp,-1(sp)
-                           7147 ;	main.c 222
-                           7148 ; genCmpLt
-                           7149 ; AOP_HL for _score
-                           7150 ; AOP_STK for _updateFont_sloc0_1_0
-   05D8 21 80 03           7151 	ld	hl,#_score + 0
-   05DB 7E                 7152 	ld	a,(hl)
-   05DC FE 0A              7153 	cp	#0x0A
-   05DE 3E 00              7154 	ld	a,#0x00
-   05E0 17                 7155 	rla
-   05E1 F8 00              7156 	lda	hl,0(sp)
-   05E3 77                 7157 	ld	(hl),a
-                           7158 ; genIfx
-                           7159 ; AOP_STK for _updateFont_sloc0_1_0
-                           7160 ; Removed redundent or a,a
-   05E4 AF                 7161 	xor	a,a
-   05E5 B6                 7162 	or	a,(hl)
-   05E6 CA 19 06           7163 	jp	z,00105$
-                           7164 ;	main.c 224
-                           7165 ; genCast
-                           7166 ; AOP_HL for _score
-   05E9 21 80 03           7167 	ld	hl,#_score + 0
-   05EC 46                 7168 	ld	b,(hl)
-   05ED 7E                 7169 	ld	a,(hl)
-                           7170 ; genCast: sign extend untested.
-   05EE 17                 7171 	rla	
-   05EF 9F                 7172 	sbc	a,a
-   05F0 4F                 7173 	ld	c,a
-                           7174 ; genIpush
-   05F1 21 00 00           7175 	ld	hl,#0x0000
-   05F4 E5                 7176 	push	hl
-                           7177 ; genIpush
-   05F5 68                 7178 	ld	l,b
-   05F6 61                 7179 	ld	h,c
-   05F7 E5                 7180 	push	hl
-                           7181 ; genCall
-   05F8 CD 27 00           7182 	call	_setScore
-   05FB E8 04              7183 	lda	sp,4(sp)
-                           7184 ;	main.c 226
-                           7185 ; genIpush
-   05FD 21 81 03           7186 	ld	hl,#_scoreMap + 0
-   0600 E5                 7187 	push	hl
-                           7188 ; genIpush
-   0601 3E 01              7189 	ld	a,#0x01
-   0603 F5                 7190 	push	af
-   0604 33                 7191 	inc	sp
-                           7192 ; genIpush
-   0605 3E 01              7193 	ld	a,#0x01
-   0607 F5                 7194 	push	af
-   0608 33                 7195 	inc	sp
-                           7196 ; genIpush
-   0609 3E 00              7197 	ld	a,#0x00
-   060B F5                 7198 	push	af
-   060C 33                 7199 	inc	sp
-                           7200 ; genIpush
-   060D 3E 00              7201 	ld	a,#0x00
-   060F F5                 7202 	push	af
-   0610 33                 7203 	inc	sp
-                           7204 ; genCall
-   0611 CD 00 00           7205 	call	_set_win_tiles
-   0614 E8 06              7206 	lda	sp,6(sp)
-                           7207 ; genGoto
-   0616 C3 7C 06           7208 	jp	00107$
-                           7209 ; genLabel
-   0619                    7210 00105$:
-                           7211 ;	main.c 228
-                           7212 ; genIfx
-                           7213 ; AOP_STK for _updateFont_sloc0_1_0
-   0619 AF                 7214 	xor	a,a
-   061A F8 00              7215 	lda	hl,0(sp)
-   061C B6                 7216 	or	a,(hl)
-   061D B7                 7217 	or	a,a
-   061E C2 7C 06           7218 	jp	nz,00107$
-                           7219 ; genCmpLt
-                           7220 ; AOP_HL for _score
-   0621 21 80 03           7221 	ld	hl,#_score + 0
-   0624 7E                 7222 	ld	a,(hl)
-   0625 FE 64              7223 	cp	#0x64
-   0627 D2 7C 06           7224 	jp	nc,00107$
-                           7225 ;	main.c 230
-                           7226 ; genIpush
-   062A 3E 0A              7227 	ld	a,#0x0A
-   062C F5                 7228 	push	af
-   062D 33                 7229 	inc	sp
-                           7230 ; genIpush
-                           7231 ; AOP_HL for _score
-   062E 7E                 7232 	ld	a,(hl)
-   062F F5                 7233 	push	af
-   0630 33                 7234 	inc	sp
-                           7235 ; genCall
-   0631 CD 00 00           7236 	call	__divuchar
-   0634 4B                 7237 	ld	c,e
-   0635 E8 02              7238 	lda	sp,2(sp)
-                           7239 ; genCast
-                           7240 ; Removed redundent load
-   0637 79                 7241 	ld	a,c
-                           7242 ; genCast: sign extend untested.
-   0638 17                 7243 	rla	
-   0639 9F                 7244 	sbc	a,a
-   063A 47                 7245 	ld	b,a
-                           7246 ; genIpush
-   063B 21 00 00           7247 	ld	hl,#0x0000
-   063E E5                 7248 	push	hl
-                           7249 ; genIpush
-   063F C5                 7250 	push	bc
-                           7251 ; genCall
-   0640 CD 27 00           7252 	call	_setScore
-   0643 E8 04              7253 	lda	sp,4(sp)
-                           7254 ;	main.c 231
-                           7255 ; genIpush
-   0645 3E 0A              7256 	ld	a,#0x0A
-   0647 F5                 7257 	push	af
-   0648 33                 7258 	inc	sp
+   047D CD 00 00           6722 	call	_scroll_sprite
+   0480 E8 03              6723 	lda	sp,3(sp)
+                           6724 ; genLabel
+   0482                    6725 00103$:
+                           6726 ; genEndFunction
+   0482 E8 0A              6727 	lda	sp,10(sp)
+   0484 C1                 6728 	pop	bc
+   0485 C9                 6729 	ret
+   0486                    6730 ___moveCactus_end:
+                           6731 ;	main.c 162
+                           6732 ; genLabel
+                           6733 ; genFunction
+                           6734 ;	---------------------------------
+                           6735 ; Function stop
+                           6736 ; ---------------------------------
+   0486                    6737 ___stop_start:
+   0486                    6738 _stop:
+   0486 C5                 6739 	push	bc
+                           6740 	
+                           6741 ;	main.c 164
+                           6742 ; genIpush
+   0487 21 07 00           6743 	ld	hl,#0x0007
+   048A E5                 6744 	push	hl
+                           6745 ; genIpush
+                           6746 ; AOP_STK for 
+   048B F8 08              6747 	lda	hl,8(sp)
+   048D 2A                 6748 	ld	a,(hl+)
+   048E 66                 6749 	ld	h,(hl)
+   048F 6F                 6750 	ld	l,a
+   0490 E5                 6751 	push	hl
+                           6752 ; genCall
+   0491 CD 00 00           6753 	call	__mulsint
+   0494 42                 6754 	ld	b,d
+   0495 4B                 6755 	ld	c,e
+   0496 E8 04              6756 	lda	sp,4(sp)
+                           6757 ; genPlus
+                           6758 ; AOP_STK for 
+                           6759 ;	genPlusIncr failed
+   0498 F8 04              6760 	lda	hl,4(sp)
+   049A 2A                 6761 	ld	a,(hl+)
+   049B 66                 6762 	ld	h,(hl)
+   049C 6F                 6763 	ld	l,a
+   049D 09                 6764 	add	hl,bc
+   049E 4D                 6765 	ld	c,l
+   049F 44                 6766 	ld	b,h
+                           6767 ; genPlus
+                           6768 ; genPlusIncr
+   04A0 59                 6769 	ld	e,c
+   04A1 50                 6770 	ld	d,b
+   04A2 13                 6771 	inc	de
+   04A3 13                 6772 	inc	de
+                           6773 ; genAssign (pointer)
+   04A4 3E 00              6774 	ld	a,#0x00
+   04A6 12                 6775 	ld	(de),a
+                           6776 ;	main.c 165
+                           6777 ; genPlus
+                           6778 ; genPlusIncr
+                           6779 ;	genPlusIncr failed
+   04A7 79                 6780 	ld	a,c
+   04A8 C6 03              6781 	add	a,#0x03
+   04AA 5F                 6782 	ld	e,a
+   04AB 78                 6783 	ld	a,b
+   04AC CE 00              6784 	adc	a,#0x00
+   04AE 57                 6785 	ld	d,a
+                           6786 ; genAssign (pointer)
+   04AF 3E 00              6787 	ld	a,#0x00
+   04B1 12                 6788 	ld	(de),a
+                           6789 ; genLabel
+   04B2                    6790 00101$:
+                           6791 ; genEndFunction
+                           6792 	
+   04B2 C1                 6793 	pop	bc
+   04B3 C9                 6794 	ret
+   04B4                    6795 ___stop_end:
+                           6796 ;	main.c 168
+                           6797 ; genLabel
+                           6798 ; genFunction
+                           6799 ;	---------------------------------
+                           6800 ; Function initCactus
+                           6801 ; ---------------------------------
+   04B4                    6802 ___initCactus_start:
+   04B4                    6803 _initCactus:
+                           6804 	
+                           6805 ;	main.c 170
+                           6806 ; genIpush
+   04B4 21 20 00           6807 	ld	hl,#_cac + 0
+   04B7 E5                 6808 	push	hl
+                           6809 ; genIpush
+   04B8 3E 02              6810 	ld	a,#0x02
+   04BA F5                 6811 	push	af
+   04BB 33                 6812 	inc	sp
+                           6813 ; genIpush
+   04BC 3E 01              6814 	ld	a,#0x01
+   04BE F5                 6815 	push	af
+   04BF 33                 6816 	inc	sp
+                           6817 ; genCall
+   04C0 CD 00 00           6818 	call	_set_sprite_data
+   04C3 E8 04              6819 	lda	sp,4(sp)
+                           6820 ;	main.c 171
+                           6821 ; genIpush
+   04C5 21 20 00           6822 	ld	hl,#_cac + 0
+   04C8 E5                 6823 	push	hl
+                           6824 ; genIpush
+   04C9 3E 03              6825 	ld	a,#0x03
+   04CB F5                 6826 	push	af
+   04CC 33                 6827 	inc	sp
+                           6828 ; genIpush
+   04CD 3E 02              6829 	ld	a,#0x02
+   04CF F5                 6830 	push	af
+   04D0 33                 6831 	inc	sp
+                           6832 ; genCall
+   04D1 CD 00 00           6833 	call	_set_sprite_data
+   04D4 E8 04              6834 	lda	sp,4(sp)
+                           6835 ;	main.c 172
+                           6836 ; genIpush
+   04D6 21 20 00           6837 	ld	hl,#_cac + 0
+   04D9 E5                 6838 	push	hl
+                           6839 ; genIpush
+   04DA 3E 04              6840 	ld	a,#0x04
+   04DC F5                 6841 	push	af
+   04DD 33                 6842 	inc	sp
+                           6843 ; genIpush
+   04DE 3E 03              6844 	ld	a,#0x03
+   04E0 F5                 6845 	push	af
+   04E1 33                 6846 	inc	sp
+                           6847 ; genCall
+   04E2 CD 00 00           6848 	call	_set_sprite_data
+   04E5 E8 04              6849 	lda	sp,4(sp)
+                           6850 ;	main.c 173
+                           6851 ; genIpush
+   04E7 21 20 00           6852 	ld	hl,#_cac + 0
+   04EA E5                 6853 	push	hl
+                           6854 ; genIpush
+   04EB 3E 05              6855 	ld	a,#0x05
+   04ED F5                 6856 	push	af
+   04EE 33                 6857 	inc	sp
+                           6858 ; genIpush
+   04EF 3E 04              6859 	ld	a,#0x04
+   04F1 F5                 6860 	push	af
+   04F2 33                 6861 	inc	sp
+                           6862 ; genCall
+   04F3 CD 00 00           6863 	call	_set_sprite_data
+   04F6 E8 04              6864 	lda	sp,4(sp)
+                           6865 ;	main.c 174
+                           6866 ; genIpush
+   04F8 21 20 00           6867 	ld	hl,#_cac + 0
+   04FB E5                 6868 	push	hl
+                           6869 ; genIpush
+   04FC 3E 06              6870 	ld	a,#0x06
+   04FE F5                 6871 	push	af
+   04FF 33                 6872 	inc	sp
+                           6873 ; genIpush
+   0500 3E 05              6874 	ld	a,#0x05
+   0502 F5                 6875 	push	af
+   0503 33                 6876 	inc	sp
+                           6877 ; genCall
+   0504 CD 00 00           6878 	call	_set_sprite_data
+   0507 E8 04              6879 	lda	sp,4(sp)
+                           6880 ;	main.c 176
+                           6881 ; genIpush
+   0509 21 00 00           6882 	ld	hl,#0x0000
+   050C E5                 6883 	push	hl
+                           6884 ; genCall
+   050D CD 96 02           6885 	call	_displayCactus
+   0510 E8 02              6886 	lda	sp,2(sp)
+                           6887 ;	main.c 177
+                           6888 ; genIpush
+   0512 21 01 00           6889 	ld	hl,#0x0001
+   0515 E5                 6890 	push	hl
+                           6891 ; genCall
+   0516 CD 96 02           6892 	call	_displayCactus
+   0519 E8 02              6893 	lda	sp,2(sp)
+                           6894 ;	main.c 178
+                           6895 ; genIpush
+   051B 21 02 00           6896 	ld	hl,#0x0002
+   051E E5                 6897 	push	hl
+                           6898 ; genCall
+   051F CD 96 02           6899 	call	_displayCactus
+   0522 E8 02              6900 	lda	sp,2(sp)
+                           6901 ;	main.c 179
+                           6902 ; genIpush
+   0524 21 03 00           6903 	ld	hl,#0x0003
+   0527 E5                 6904 	push	hl
+                           6905 ; genCall
+   0528 CD 96 02           6906 	call	_displayCactus
+   052B E8 02              6907 	lda	sp,2(sp)
+                           6908 ; genLabel
+   052D                    6909 00101$:
+                           6910 ; genEndFunction
+                           6911 	
+   052D C9                 6912 	ret
+   052E                    6913 ___initCactus_end:
+                           6914 ;	main.c 182
+                           6915 ; genLabel
+                           6916 ; genFunction
+                           6917 ;	---------------------------------
+                           6918 ; Function updateCactus
+                           6919 ; ---------------------------------
+   052E                    6920 ___updateCactus_start:
+   052E                    6921 _updateCactus:
+                           6922 	
+                           6923 ;	main.c 184
+                           6924 ; genIpush
+   052E 21 00 00           6925 	ld	hl,#0x0000
+   0531 E5                 6926 	push	hl
+                           6927 ; genCall
+   0532 CD 63 03           6928 	call	_moveCactus
+   0535 E8 02              6929 	lda	sp,2(sp)
+                           6930 ;	main.c 185
+                           6931 ; genIpush
+   0537 21 01 00           6932 	ld	hl,#0x0001
+   053A E5                 6933 	push	hl
+                           6934 ; genCall
+   053B CD 63 03           6935 	call	_moveCactus
+   053E E8 02              6936 	lda	sp,2(sp)
+                           6937 ;	main.c 186
+                           6938 ; genIpush
+   0540 21 02 00           6939 	ld	hl,#0x0002
+   0543 E5                 6940 	push	hl
+                           6941 ; genCall
+   0544 CD 63 03           6942 	call	_moveCactus
+   0547 E8 02              6943 	lda	sp,2(sp)
+                           6944 ;	main.c 187
+                           6945 ; genIpush
+   0549 21 03 00           6946 	ld	hl,#0x0003
+   054C E5                 6947 	push	hl
+                           6948 ; genCall
+   054D CD 63 03           6949 	call	_moveCactus
+   0550 E8 02              6950 	lda	sp,2(sp)
+                           6951 ; genLabel
+   0552                    6952 00101$:
+                           6953 ; genEndFunction
+                           6954 	
+   0552 C9                 6955 	ret
+   0553                    6956 ___updateCactus_end:
+                           6957 ;	main.c 190
+                           6958 ; genLabel
+                           6959 ; genFunction
+                           6960 ;	---------------------------------
+                           6961 ; Function checkCollision
+                           6962 ; ---------------------------------
+   0553                    6963 ___checkCollision_start:
+   0553                    6964 _checkCollision:
+   0553 C5                 6965 	push	bc
+   0554 E8 F5              6966 	lda	sp,-11(sp)
+                           6967 ;	main.c 192
+                           6968 ; genAssign
+                           6969 ; AOP_STK for _checkCollision_collideX_1_1
+   0556 F8 0A              6970 	lda	hl,10(sp)
+   0558 36 00              6971 	ld	(hl),#0x00
+                           6972 ;	main.c 193
+                           6973 ; genAssign
+                           6974 ; AOP_STK for _checkCollision_collideY_1_1
+   055A 2B                 6975 	dec	hl
+   055B 36 00              6976 	ld	(hl),#0x00
+                           6977 ;	main.c 195
+                           6978 ; genAssign
+                           6979 ; AOP_STK for 
+                           6980 ; AOP_STK for _checkCollision_sloc1_1_0
+   055D F8 0F              6981 	lda	hl,15(sp)
+   055F 2A                 6982 	ld	a,(hl+)
+   0560 5E                 6983 	ld	e,(hl)
+   0561 F8 06              6984 	lda	hl,6(sp)
+   0563 22                 6985 	ld	(hl+),a
+   0564 73                 6986 	ld	(hl),e
+                           6987 ; genPointerGet
+                           6988 ; AOP_STK for _checkCollision_sloc1_1_0
+                           6989 ; AOP_STK for _checkCollision_sloc0_1_0
+   0565 2B                 6990 	dec	hl
+   0566 5E                 6991 	ld	e,(hl)
+   0567 23                 6992 	inc	hl
+   0568 56                 6993 	ld	d,(hl)
+   0569 1A                 6994 	ld	a,(de)
+   056A 23                 6995 	inc	hl
+   056B 77                 6996 	ld	(hl),a
+                           6997 ; genPlus
+                           6998 ; AOP_STK for _checkCollision_sloc1_1_0
+                           6999 ; genPlusIncr
+                           7000 ;	genPlusIncr failed
+   056C 2B                 7001 	dec	hl
+   056D 2B                 7002 	dec	hl
+   056E 5E                 7003 	ld	e,(hl)
+   056F 23                 7004 	inc	hl
+   0570 56                 7005 	ld	d,(hl)
+   0571 21 06 00           7006 	ld	hl,#0x0006
+   0574 19                 7007 	add	hl,de
+   0575 5D                 7008 	ld	e,l
+   0576 54                 7009 	ld	d,h
+                           7010 ; genPointerGet
+                           7011 ; AOP_STK for _checkCollision_sloc3_1_0
+   0577 1A                 7012 	ld	a,(de)
+   0578 F8 04              7013 	lda	hl,4(sp)
+   057A 77                 7014 	ld	(hl),a
+                           7015 ; genPlus
+                           7016 ; AOP_STK for _checkCollision_sloc0_1_0
+                           7017 ; AOP_STK for _checkCollision_sloc3_1_0
+                           7018 ; AOP_STK for _checkCollision_sloc2_1_0
+                           7019 ;	genPlusIncr failed
+   057B F8 08              7020 	lda	hl,8(sp)
+   057D 7E                 7021 	ld	a,(hl)
+   057E F8 04              7022 	lda	hl,4(sp)
+   0580 86                 7023 	add	a,(hl)
+   0581 23                 7024 	inc	hl
+   0582 77                 7025 	ld	(hl),a
+                           7026 ; genAssign
+                           7027 ; AOP_STK for 
+                           7028 ; AOP_STK for _checkCollision_sloc5_1_0
+   0583 F8 11              7029 	lda	hl,17(sp)
+   0585 2A                 7030 	ld	a,(hl+)
+   0586 5E                 7031 	ld	e,(hl)
+   0587 F8 01              7032 	lda	hl,1(sp)
+   0589 22                 7033 	ld	(hl+),a
+   058A 73                 7034 	ld	(hl),e
+                           7035 ; genPointerGet
+                           7036 ; AOP_STK for _checkCollision_sloc5_1_0
+                           7037 ; AOP_STK for _checkCollision_sloc4_1_0
+   058B 2B                 7038 	dec	hl
+   058C 5E                 7039 	ld	e,(hl)
+   058D 23                 7040 	inc	hl
+   058E 56                 7041 	ld	d,(hl)
+   058F 1A                 7042 	ld	a,(de)
+   0590 23                 7043 	inc	hl
+   0591 77                 7044 	ld	(hl),a
+                           7045 ; genPlus
+                           7046 ; AOP_STK for _checkCollision_sloc5_1_0
+                           7047 ; genPlusIncr
+                           7048 ;	genPlusIncr failed
+   0592 2B                 7049 	dec	hl
+   0593 2B                 7050 	dec	hl
+   0594 5E                 7051 	ld	e,(hl)
+   0595 23                 7052 	inc	hl
+   0596 56                 7053 	ld	d,(hl)
+   0597 21 06 00           7054 	ld	hl,#0x0006
+   059A 19                 7055 	add	hl,de
+   059B 5D                 7056 	ld	e,l
+   059C 54                 7057 	ld	d,h
+                           7058 ; genPointerGet
+                           7059 ; AOP_STK for _checkCollision_sloc6_1_0
+   059D 1A                 7060 	ld	a,(de)
+   059E F8 00              7061 	lda	hl,0(sp)
+   05A0 77                 7062 	ld	(hl),a
+                           7063 ; genMinus
+                           7064 ; AOP_STK for _checkCollision_sloc4_1_0
+                           7065 ; AOP_STK for _checkCollision_sloc6_1_0
+   05A1 F8 03              7066 	lda	hl,3(sp)
+   05A3 7E                 7067 	ld	a,(hl)
+   05A4 F8 00              7068 	lda	hl,0(sp)
+   05A6 96                 7069 	sub	a,(hl)
+   05A7 47                 7070 	ld	b,a
+                           7071 ; genCmpGt
+                           7072 ; AOP_STK for _checkCollision_sloc2_1_0
+   05A8 AF                 7073 	xor	a,a
+   05A9 78                 7074 	ld	a,b
+   05AA F8 05              7075 	lda	hl,5(sp)
+   05AC 9E                 7076 	sbc	a,(hl) ; 2
+   05AD D2 CB 05           7077 	jp	nc,00104$
+                           7078 ;	main.c 197
+                           7079 ; genMinus
+                           7080 ; AOP_STK for _checkCollision_sloc0_1_0
+                           7081 ; AOP_STK for _checkCollision_sloc3_1_0
+                           7082 ; AOP_STK for _checkCollision_sloc2_1_0
+   05B0 F8 08              7083 	lda	hl,8(sp)
+   05B2 7E                 7084 	ld	a,(hl)
+   05B3 F8 04              7085 	lda	hl,4(sp)
+   05B5 96                 7086 	sub	a,(hl)
+   05B6 23                 7087 	inc	hl
+   05B7 77                 7088 	ld	(hl),a
+                           7089 ; genPlus
+                           7090 ; AOP_STK for _checkCollision_sloc4_1_0
+                           7091 ; AOP_STK for _checkCollision_sloc6_1_0
+                           7092 ;	genPlusIncr failed
+   05B8 2B                 7093 	dec	hl
+   05B9 2B                 7094 	dec	hl
+   05BA 7E                 7095 	ld	a,(hl)
+   05BB F8 00              7096 	lda	hl,0(sp)
+   05BD 86                 7097 	add	a,(hl)
+   05BE 47                 7098 	ld	b,a
+                           7099 ; genCmpLt
+                           7100 ; AOP_STK for _checkCollision_sloc2_1_0
+   05BF AF                 7101 	xor	a,a
+   05C0 F8 05              7102 	lda	hl,5(sp)
+   05C2 7E                 7103 	ld	a,(hl)
+   05C3 98                 7104 	sbc	a,b ; 2
+   05C4 D2 CB 05           7105 	jp	nc,00104$
+                           7106 ;	main.c 199
+                           7107 ; genAssign
+                           7108 ; AOP_STK for _checkCollision_collideX_1_1
+   05C7 F8 0A              7109 	lda	hl,10(sp)
+   05C9 36 01              7110 	ld	(hl),#0x01
+                           7111 ; genLabel
+   05CB                    7112 00104$:
+                           7113 ;	main.c 202
+                           7114 ; genPlus
+                           7115 ; AOP_STK for _checkCollision_sloc1_1_0
+                           7116 ; genPlusIncr
+   05CB F8 06              7117 	lda	hl,6(sp)
+   05CD 5E                 7118 	ld	e,(hl)
+   05CE 23                 7119 	inc	hl
+   05CF 56                 7120 	ld	d,(hl)
+   05D0 13                 7121 	inc	de
+                           7122 ; genPointerGet
+                           7123 ; AOP_STK for _checkCollision_sloc2_1_0
+   05D1 1A                 7124 	ld	a,(de)
+   05D2 2B                 7125 	dec	hl
+   05D3 2B                 7126 	dec	hl
+   05D4 77                 7127 	ld	(hl),a
+                           7128 ; genPlus
+                           7129 ; AOP_STK for _checkCollision_sloc2_1_0
+                           7130 ; AOP_STK for _checkCollision_sloc3_1_0
+                           7131 ; AOP_STK for _checkCollision_sloc4_1_0
+                           7132 ;	genPlusIncr failed
+   05D5 7E                 7133 	ld	a,(hl)
+   05D6 2B                 7134 	dec	hl
+   05D7 86                 7135 	add	a,(hl)
+   05D8 2B                 7136 	dec	hl
+   05D9 77                 7137 	ld	(hl),a
+                           7138 ; genPlus
+                           7139 ; AOP_STK for _checkCollision_sloc5_1_0
+                           7140 ; genPlusIncr
+   05DA 2B                 7141 	dec	hl
+   05DB 2B                 7142 	dec	hl
+   05DC 5E                 7143 	ld	e,(hl)
+   05DD 23                 7144 	inc	hl
+   05DE 56                 7145 	ld	d,(hl)
+   05DF 13                 7146 	inc	de
+                           7147 ; genPointerGet
+   05E0 1A                 7148 	ld	a,(de)
+   05E1 4F                 7149 	ld	c,a
+                           7150 ; genMinus
+                           7151 ; AOP_STK for _checkCollision_sloc6_1_0
+   05E2 79                 7152 	ld	a,c
+   05E3 2B                 7153 	dec	hl
+   05E4 2B                 7154 	dec	hl
+   05E5 96                 7155 	sub	a,(hl)
+   05E6 47                 7156 	ld	b,a
+                           7157 ; genCmpGt
+                           7158 ; AOP_STK for _checkCollision_sloc4_1_0
+   05E7 AF                 7159 	xor	a,a
+   05E8 78                 7160 	ld	a,b
+   05E9 F8 03              7161 	lda	hl,3(sp)
+   05EB 9E                 7162 	sbc	a,(hl) ; 2
+   05EC D2 04 06           7163 	jp	nc,00108$
+                           7164 ;	main.c 204
+                           7165 ; genMinus
+                           7166 ; AOP_STK for _checkCollision_sloc2_1_0
+                           7167 ; AOP_STK for _checkCollision_sloc3_1_0
+   05EF 23                 7168 	inc	hl
+   05F0 23                 7169 	inc	hl
+   05F1 7E                 7170 	ld	a,(hl)
+   05F2 2B                 7171 	dec	hl
+   05F3 96                 7172 	sub	a,(hl)
+   05F4 47                 7173 	ld	b,a
+                           7174 ; genPlus
+                           7175 ; AOP_STK for _checkCollision_sloc6_1_0
+                           7176 ;	genPlusIncr failed
+   05F5 79                 7177 	ld	a,c
+   05F6 F8 00              7178 	lda	hl,0(sp)
+   05F8 86                 7179 	add	a,(hl)
+   05F9 4F                 7180 	ld	c,a
+                           7181 ; genCmpLt
+   05FA AF                 7182 	xor	a,a
+   05FB 78                 7183 	ld	a,b
+   05FC 99                 7184 	sbc	a,c ; 2
+   05FD D2 04 06           7185 	jp	nc,00108$
+                           7186 ;	main.c 206
+                           7187 ; genAssign
+                           7188 ; AOP_STK for _checkCollision_collideY_1_1
+   0600 F8 09              7189 	lda	hl,9(sp)
+   0602 36 01              7190 	ld	(hl),#0x01
+                           7191 ; genLabel
+   0604                    7192 00108$:
+                           7193 ;	main.c 209
+                           7194 ; genCmpEq
+                           7195 ; AOP_STK for _checkCollision_collideX_1_1
+   0604 F8 0A              7196 	lda	hl,10(sp)
+   0606 7E                 7197 	ld	a,(hl) ; 2
+   0607 FE 01              7198 	cp	a,#0x01
+   0609 C2 0E 06           7199 	jp	nz,00120$
+   060C 18 03              7200 	jr	00121$
+   060E                    7201 00120$:
+   060E C3 23 06           7202 	jp	00110$
+   0611                    7203 00121$:
+                           7204 ; genCmpEq
+                           7205 ; AOP_STK for _checkCollision_collideY_1_1
+   0611 F8 09              7206 	lda	hl,9(sp)
+   0613 7E                 7207 	ld	a,(hl) ; 2
+   0614 FE 01              7208 	cp	a,#0x01
+   0616 C2 1B 06           7209 	jp	nz,00122$
+   0619 18 03              7210 	jr	00123$
+   061B                    7211 00122$:
+   061B C3 23 06           7212 	jp	00110$
+   061E                    7213 00123$:
+                           7214 ;	main.c 211
+                           7215 ; genRet
+   061E 1E 01              7216 	ld	e,#0x01
+   0620 C3 25 06           7217 	jp	00112$
+                           7218 ; genLabel
+   0623                    7219 00110$:
+                           7220 ;	main.c 213
+                           7221 ; genRet
+   0623 1E 00              7222 	ld	e,#0x00
+                           7223 ; genLabel
+   0625                    7224 00112$:
+                           7225 ; genEndFunction
+   0625 E8 0B              7226 	lda	sp,11(sp)
+   0627 C1                 7227 	pop	bc
+   0628 C9                 7228 	ret
+   0629                    7229 ___checkCollision_end:
+                           7230 ;	main.c 216
+                           7231 ; genLabel
+                           7232 ; genFunction
+                           7233 ;	---------------------------------
+                           7234 ; Function initFont
+                           7235 ; ---------------------------------
+   0629                    7236 ___initFont_start:
+   0629                    7237 _initFont:
+   0629 C5                 7238 	push	bc
+                           7239 	
+                           7240 ;	main.c 219
+                           7241 ; genCall
+   062A CD 00 00           7242 	call	_font_init
+                           7243 ;	main.c 221
+                           7244 ; genIpush
+   062D 21 00 00           7245 	ld	hl,#_font_min + 0
+   0630 E5                 7246 	push	hl
+                           7247 ; genCall
+   0631 CD 00 00           7248 	call	_font_load
+   0634 42                 7249 	ld	b,d
+   0635 4B                 7250 	ld	c,e
+   0636 E8 02              7251 	lda	sp,2(sp)
+                           7252 ;	main.c 222
+                           7253 ; genIpush
+   0638 C5                 7254 	push	bc
+                           7255 ; genCall
+   0639 CD 00 00           7256 	call	_font_set
+   063C E8 02              7257 	lda	sp,2(sp)
+                           7258 ;	main.c 224
                            7259 ; genIpush
-                           7260 ; AOP_HL for _score
-   0649 21 80 03           7261 	ld	hl,#_score + 0
-   064C 7E                 7262 	ld	a,(hl)
-   064D F5                 7263 	push	af
-   064E 33                 7264 	inc	sp
-                           7265 ; genCall
-   064F CD 00 00           7266 	call	__moduchar
-   0652 4B                 7267 	ld	c,e
-   0653 E8 02              7268 	lda	sp,2(sp)
-                           7269 ; genCast
-                           7270 ; Removed redundent load
-   0655 79                 7271 	ld	a,c
-                           7272 ; genCast: sign extend untested.
-   0656 17                 7273 	rla	
-   0657 9F                 7274 	sbc	a,a
-   0658 47                 7275 	ld	b,a
-                           7276 ; genIpush
-   0659 21 01 00           7277 	ld	hl,#0x0001
-   065C E5                 7278 	push	hl
-                           7279 ; genIpush
-   065D C5                 7280 	push	bc
-                           7281 ; genCall
-   065E CD 27 00           7282 	call	_setScore
-   0661 E8 04              7283 	lda	sp,4(sp)
-                           7284 ;	main.c 233
-                           7285 ; genIpush
-   0663 21 81 03           7286 	ld	hl,#_scoreMap + 0
-   0666 E5                 7287 	push	hl
-                           7288 ; genIpush
-   0667 3E 01              7289 	ld	a,#0x01
-   0669 F5                 7290 	push	af
-   066A 33                 7291 	inc	sp
-                           7292 ; genIpush
-   066B 3E 02              7293 	ld	a,#0x02
-   066D F5                 7294 	push	af
-   066E 33                 7295 	inc	sp
-                           7296 ; genIpush
-   066F 3E 00              7297 	ld	a,#0x00
-   0671 F5                 7298 	push	af
-   0672 33                 7299 	inc	sp
-                           7300 ; genIpush
-   0673 3E 00              7301 	ld	a,#0x00
-   0675 F5                 7302 	push	af
-   0676 33                 7303 	inc	sp
-                           7304 ; genCall
-   0677 CD 00 00           7305 	call	_set_win_tiles
-   067A E8 06              7306 	lda	sp,6(sp)
-                           7307 ; genLabel
-   067C                    7308 00107$:
-                           7309 ; genEndFunction
-   067C E8 01              7310 	lda	sp,1(sp)
-   067E C1                 7311 	pop	bc
-   067F C9                 7312 	ret
-   0680                    7313 ___updateFont_end:
-                           7314 ;	main.c 237
-                           7315 ; genLabel
-                           7316 ; genFunction
-                           7317 ;	---------------------------------
-                           7318 ; Function initBackground
-                           7319 ; ---------------------------------
-   0680                    7320 ___initBackground_start:
-   0680                    7321 _initBackground:
-                           7322 	
-                           7323 ;	main.c 239
-                           7324 ; genIpush
-   0680 21 40 00           7325 	ld	hl,#_mapTile + 0
-   0683 E5                 7326 	push	hl
-                           7327 ; genIpush
-   0684 3E 04              7328 	ld	a,#0x04
-   0686 F5                 7329 	push	af
-   0687 33                 7330 	inc	sp
-                           7331 ; genIpush
-   0688 3E 26              7332 	ld	a,#0x26
-   068A F5                 7333 	push	af
-   068B 33                 7334 	inc	sp
-                           7335 ; genCall
-   068C CD 00 00           7336 	call	_set_bkg_data
-   068F E8 04              7337 	lda	sp,4(sp)
-                           7338 ;	main.c 240
-                           7339 ; genIpush
-   0691 21 80 00           7340 	ld	hl,#_map + 0
-   0694 E5                 7341 	push	hl
-                           7342 ; genIpush
-   0695 3E 12              7343 	ld	a,#0x12
-   0697 F5                 7344 	push	af
-   0698 33                 7345 	inc	sp
-                           7346 ; genIpush
-   0699 3E 28              7347 	ld	a,#0x28
-   069B F5                 7348 	push	af
-   069C 33                 7349 	inc	sp
-                           7350 ; genIpush
-   069D 3E 00              7351 	ld	a,#0x00
-   069F F5                 7352 	push	af
-   06A0 33                 7353 	inc	sp
-                           7354 ; genIpush
-   06A1 3E 00              7355 	ld	a,#0x00
-   06A3 F5                 7356 	push	af
-   06A4 33                 7357 	inc	sp
-                           7358 ; genCall
-   06A5 CD 00 00           7359 	call	_set_bkg_tiles
-   06A8 E8 06              7360 	lda	sp,6(sp)
-                           7361 ; genLabel
-   06AA                    7362 00101$:
-                           7363 ; genEndFunction
-                           7364 	
-   06AA C9                 7365 	ret
-   06AB                    7366 ___initBackground_end:
-                           7367 ;	main.c 243
-                           7368 ; genLabel
-                           7369 ; genFunction
-                           7370 ;	---------------------------------
-                           7371 ; Function updateBackground
-                           7372 ; ---------------------------------
-   06AB                    7373 ___updateBackground_start:
-   06AB                    7374 _updateBackground:
-   06AB C5                 7375 	push	bc
-                           7376 	
-                           7377 ;	main.c 245
-                           7378 ; genCmpEq
-                           7379 ; AOP_HL for _gameOver
-   06AC 21 7F 03           7380 	ld	hl,#_gameOver + 0
-   06AF 7E                 7381 	ld	a,(hl)
-   06B0 B7                 7382 	or	a,a
-   06B1 C2 B6 06           7383 	jp	nz,00106$
-   06B4 18 03              7384 	jr	00107$
-   06B6                    7385 00106$:
-   06B6 C3 C9 06           7386 	jp	00103$
-   06B9                    7387 00107$:
-                           7388 ;	main.c 247
-                           7389 ; genAssign
-                           7390 ; AOP_HL for _maxCactusSpeedX
-   06B9 21 7E 03           7391 	ld	hl,#_maxCactusSpeedX + 0
-   06BC 4E                 7392 	ld	c,(hl)
+   063E 21 81 03           7260 	ld	hl,#_scoreMap + 0
+   0641 E5                 7261 	push	hl
+                           7262 ; genIpush
+   0642 3E 01              7263 	ld	a,#0x01
+   0644 F5                 7264 	push	af
+   0645 33                 7265 	inc	sp
+                           7266 ; genIpush
+   0646 3E 01              7267 	ld	a,#0x01
+   0648 F5                 7268 	push	af
+   0649 33                 7269 	inc	sp
+                           7270 ; genIpush
+   064A 3E 00              7271 	ld	a,#0x00
+   064C F5                 7272 	push	af
+   064D 33                 7273 	inc	sp
+                           7274 ; genIpush
+   064E 3E 00              7275 	ld	a,#0x00
+   0650 F5                 7276 	push	af
+   0651 33                 7277 	inc	sp
+                           7278 ; genCall
+   0652 CD 00 00           7279 	call	_set_win_tiles
+   0655 E8 06              7280 	lda	sp,6(sp)
+                           7281 ;	main.c 225
+                           7282 ; genIpush
+   0657 3E 88              7283 	ld	a,#0x88
+   0659 F5                 7284 	push	af
+   065A 33                 7285 	inc	sp
+                           7286 ; genIpush
+   065B 3E 07              7287 	ld	a,#0x07
+   065D F5                 7288 	push	af
+   065E 33                 7289 	inc	sp
+                           7290 ; genCall
+   065F CD 00 00           7291 	call	_move_win
+   0662 E8 02              7292 	lda	sp,2(sp)
+                           7293 ; genLabel
+   0664                    7294 00101$:
+                           7295 ; genEndFunction
+                           7296 	
+   0664 C1                 7297 	pop	bc
+   0665 C9                 7298 	ret
+   0666                    7299 ___initFont_end:
+                           7300 ;	main.c 228
+                           7301 ; genLabel
+                           7302 ; genFunction
+                           7303 ;	---------------------------------
+                           7304 ; Function updateFont
+                           7305 ; ---------------------------------
+   0666                    7306 ___updateFont_start:
+   0666                    7307 _updateFont:
+   0666 C5                 7308 	push	bc
+   0667 E8 FF              7309 	lda	sp,-1(sp)
+                           7310 ;	main.c 230
+                           7311 ; genCmpLt
+                           7312 ; AOP_HL for _score
+                           7313 ; AOP_STK for _updateFont_sloc0_1_0
+   0669 21 80 03           7314 	ld	hl,#_score + 0
+   066C 7E                 7315 	ld	a,(hl)
+   066D FE 0A              7316 	cp	#0x0A
+   066F 3E 00              7317 	ld	a,#0x00
+   0671 17                 7318 	rla
+   0672 F8 00              7319 	lda	hl,0(sp)
+   0674 77                 7320 	ld	(hl),a
+                           7321 ; genIfx
+                           7322 ; AOP_STK for _updateFont_sloc0_1_0
+                           7323 ; Removed redundent or a,a
+   0675 AF                 7324 	xor	a,a
+   0676 B6                 7325 	or	a,(hl)
+   0677 CA AA 06           7326 	jp	z,00105$
+                           7327 ;	main.c 232
+                           7328 ; genCast
+                           7329 ; AOP_HL for _score
+   067A 21 80 03           7330 	ld	hl,#_score + 0
+   067D 46                 7331 	ld	b,(hl)
+   067E 7E                 7332 	ld	a,(hl)
+                           7333 ; genCast: sign extend untested.
+   067F 17                 7334 	rla	
+   0680 9F                 7335 	sbc	a,a
+   0681 4F                 7336 	ld	c,a
+                           7337 ; genIpush
+   0682 21 00 00           7338 	ld	hl,#0x0000
+   0685 E5                 7339 	push	hl
+                           7340 ; genIpush
+   0686 68                 7341 	ld	l,b
+   0687 61                 7342 	ld	h,c
+   0688 E5                 7343 	push	hl
+                           7344 ; genCall
+   0689 CD 27 00           7345 	call	_setScore
+   068C E8 04              7346 	lda	sp,4(sp)
+                           7347 ;	main.c 234
+                           7348 ; genIpush
+   068E 21 81 03           7349 	ld	hl,#_scoreMap + 0
+   0691 E5                 7350 	push	hl
+                           7351 ; genIpush
+   0692 3E 01              7352 	ld	a,#0x01
+   0694 F5                 7353 	push	af
+   0695 33                 7354 	inc	sp
+                           7355 ; genIpush
+   0696 3E 01              7356 	ld	a,#0x01
+   0698 F5                 7357 	push	af
+   0699 33                 7358 	inc	sp
+                           7359 ; genIpush
+   069A 3E 00              7360 	ld	a,#0x00
+   069C F5                 7361 	push	af
+   069D 33                 7362 	inc	sp
+                           7363 ; genIpush
+   069E 3E 00              7364 	ld	a,#0x00
+   06A0 F5                 7365 	push	af
+   06A1 33                 7366 	inc	sp
+                           7367 ; genCall
+   06A2 CD 00 00           7368 	call	_set_win_tiles
+   06A5 E8 06              7369 	lda	sp,6(sp)
+                           7370 ; genGoto
+   06A7 C3 0D 07           7371 	jp	00107$
+                           7372 ; genLabel
+   06AA                    7373 00105$:
+                           7374 ;	main.c 236
+                           7375 ; genIfx
+                           7376 ; AOP_STK for _updateFont_sloc0_1_0
+   06AA AF                 7377 	xor	a,a
+   06AB F8 00              7378 	lda	hl,0(sp)
+   06AD B6                 7379 	or	a,(hl)
+   06AE B7                 7380 	or	a,a
+   06AF C2 0D 07           7381 	jp	nz,00107$
+                           7382 ; genCmpLt
+                           7383 ; AOP_HL for _score
+   06B2 21 80 03           7384 	ld	hl,#_score + 0
+   06B5 7E                 7385 	ld	a,(hl)
+   06B6 FE 64              7386 	cp	#0x64
+   06B8 D2 0D 07           7387 	jp	nc,00107$
+                           7388 ;	main.c 238
+                           7389 ; genIpush
+   06BB 3E 0A              7390 	ld	a,#0x0A
+   06BD F5                 7391 	push	af
+   06BE 33                 7392 	inc	sp
                            7393 ; genIpush
-   06BD 3E 00              7394 	ld	a,#0x00
-   06BF F5                 7395 	push	af
-   06C0 33                 7396 	inc	sp
-                           7397 ; genIpush
-   06C1 79                 7398 	ld	a,c
-   06C2 F5                 7399 	push	af
-   06C3 33                 7400 	inc	sp
-                           7401 ; genCall
-   06C4 CD 00 00           7402 	call	_scroll_bkg
-   06C7 E8 02              7403 	lda	sp,2(sp)
-                           7404 ; genLabel
-   06C9                    7405 00103$:
-                           7406 ; genEndFunction
-                           7407 	
-   06C9 C1                 7408 	pop	bc
-   06CA C9                 7409 	ret
-   06CB                    7410 ___updateBackground_end:
-                           7411 ;	main.c 251
-                           7412 ; genLabel
-                           7413 ; genFunction
-                           7414 ;	---------------------------------
-                           7415 ; Function init
-                           7416 ; ---------------------------------
-   06CB                    7417 ___init_start:
-   06CB                    7418 _init:
-                           7419 	
-                           7420 ;	main.c 253
-                           7421 ; genCall
-   06CB CD 98 05           7422 	call	_initFont
-                           7423 ;	main.c 254
-                           7424 ; genCall
-   06CE CD 80 06           7425 	call	_initBackground
-                           7426 ;	main.c 256
-                           7427 ; genCall
-   06D1 CD C4 01           7428 	call	_initDino
-                           7429 ;	main.c 257
-                           7430 ; genCall
-   06D4 CD 23 04           7431 	call	_initCactus
-                           7432 ;	main.c 259
-                           7433 ; genAssign
-                           7434 ; AOP_HL for _gameOver
-   06D7 21 7F 03           7435 	ld	hl,#_gameOver + 0
-   06DA 36 00              7436 	ld	(hl),#0x00
-                           7437 ;	main.c 260
-                           7438 ; genAssign
-                           7439 ; AOP_HL for _score
-   06DC 21 80 03           7440 	ld	hl,#_score + 0
-   06DF 36 00              7441 	ld	(hl),#0x00
-                           7442 ; genLabel
-   06E1                    7443 00101$:
-                           7444 ; genEndFunction
-                           7445 	
-   06E1 C9                 7446 	ret
-   06E2                    7447 ___init_end:
-                           7448 ;	main.c 263
-                           7449 ; genLabel
-                           7450 ; genFunction
-                           7451 ;	---------------------------------
-                           7452 ; Function jump
-                           7453 ; ---------------------------------
-   06E2                    7454 ___jump_start:
-   06E2                    7455 _jump:
-   06E2 C5                 7456 	push	bc
-   06E3 E8 FC              7457 	lda	sp,-4(sp)
-                           7458 ;	main.c 265
-                           7459 ; genAssign
-                           7460 ; AOP_STK for 
-                           7461 ; AOP_STK for _jump_sloc1_1_0
-   06E5 F8 08              7462 	lda	hl,8(sp)
-   06E7 2A                 7463 	ld	a,(hl+)
-   06E8 5E                 7464 	ld	e,(hl)
-   06E9 F8 00              7465 	lda	hl,0(sp)
-   06EB 22                 7466 	ld	(hl+),a
-   06EC 73                 7467 	ld	(hl),e
-                           7468 ; genPlus
-                           7469 ; AOP_STK for _jump_sloc1_1_0
-                           7470 ; AOP_STK for _jump_sloc0_1_0
-                           7471 ; genPlusIncr
-                           7472 ;	genPlusIncr failed
-   06ED 2B                 7473 	dec	hl
-   06EE 5E                 7474 	ld	e,(hl)
-   06EF 23                 7475 	inc	hl
-   06F0 56                 7476 	ld	d,(hl)
-   06F1 21 04 00           7477 	ld	hl,#0x0004
-   06F4 19                 7478 	add	hl,de
-   06F5 7D                 7479 	ld	a,l
-   06F6 54                 7480 	ld	d,h
-   06F7 F8 02              7481 	lda	hl,2(sp)
-   06F9 22                 7482 	ld	(hl+),a
-   06FA 72                 7483 	ld	(hl),d
-                           7484 ; genPointerGet
-                           7485 ; AOP_STK for _jump_sloc0_1_0
-   06FB 2B                 7486 	dec	hl
-   06FC 5E                 7487 	ld	e,(hl)
-   06FD 23                 7488 	inc	hl
-   06FE 56                 7489 	ld	d,(hl)
-   06FF 1A                 7490 	ld	a,(de)
-   0700 4F                 7491 	ld	c,a
-                           7492 ; genCmpEq
-   0701 79                 7493 	ld	a,c
-   0702 B7                 7494 	or	a,a
-   0703 C2 08 07           7495 	jp	nz,00106$
-   0706 18 03              7496 	jr	00107$
-   0708                    7497 00106$:
-   0708 C3 2C 07           7498 	jp	00103$
-   070B                    7499 00107$:
-                           7500 ;	main.c 267
-                           7501 ; genPlus
-                           7502 ; AOP_STK for _jump_sloc1_1_0
-                           7503 ; genPlusIncr
-                           7504 ;	genPlusIncr failed
-   070B F8 00              7505 	lda	hl,0(sp)
-   070D 5E                 7506 	ld	e,(hl)
-   070E 23                 7507 	inc	hl
-   070F 56                 7508 	ld	d,(hl)
-   0710 21 03 00           7509 	ld	hl,#0x0003
-   0713 19                 7510 	add	hl,de
-   0714 5D                 7511 	ld	e,l
-   0715 54                 7512 	ld	d,h
-                           7513 ; genUminus
-                           7514 ; AOP_HL for _maxDinosaurSpeedY
-   0716 AF                 7515 	xor	a,a
-   0717 21 7D 03           7516 	ld	hl,#_maxDinosaurSpeedY + 0
-   071A 3E 00              7517 	ld	a,#0x00
-   071C 9E                 7518 	sbc	a,(hl)
-   071D 4F                 7519 	ld	c,a
-                           7520 ; genAssign (pointer)
-   071E 79                 7521 	ld	a,c
-   071F 12                 7522 	ld	(de),a
-                           7523 ;	main.c 268
-                           7524 ; genPlus
-                           7525 ; AOP_HL for _score
-                           7526 ; genPlusIncr
-   0720 21 80 03           7527 	ld	hl,#_score + 0
-   0723 34                 7528 	inc	(hl)
-                           7529 ;	main.c 269
-                           7530 ; genAssign (pointer)
-                           7531 ; AOP_STK for _jump_sloc0_1_0
-   0724 F8 02              7532 	lda	hl,2(sp)
-   0726 5E                 7533 	ld	e,(hl)
-   0727 23                 7534 	inc	hl
-   0728 56                 7535 	ld	d,(hl)
-   0729 3E 01              7536 	ld	a,#0x01
-   072B 12                 7537 	ld	(de),a
-                           7538 ; genLabel
-   072C                    7539 00103$:
-                           7540 ; genEndFunction
-   072C E8 04              7541 	lda	sp,4(sp)
-   072E C1                 7542 	pop	bc
-   072F C9                 7543 	ret
-   0730                    7544 ___jump_end:
-                           7545 ;	main.c 273
-                           7546 ; genLabel
-                           7547 ; genFunction
-                           7548 ;	---------------------------------
-                           7549 ; Function main
-                           7550 ; ---------------------------------
-   0730                    7551 ___main_start:
-   0730                    7552 _main:
-   0730 C5                 7553 	push	bc
-                           7554 	
-                           7555 ;	main.c 275
-                           7556 ; genCall
-   0731 CD CB 06           7557 	call	_init
-                           7558 ;	main.c 277
-                           7559 ; genOr
-                           7560 ; AOP_SFR for _LCDC_REG
-                           7561 ; Type res[4] = l[4]&r[1]
-                           7562 ; Size res[1] = l[1]&r[1]
-   0734 F0 00              7563 	ldh	a,(_LCDC_REG+0) ; x
-   0736 F6 20              7564 	or	a,#0x20
-   0738 E0 00              7565 	ldh	(_LCDC_REG+0),a
-                           7566 ;	main.c 278
-                           7567 ; genOr
-                           7568 ; AOP_SFR for _LCDC_REG
-                           7569 ; Type res[4] = l[4]&r[1]
-                           7570 ; Size res[1] = l[1]&r[1]
-   073A F0 00              7571 	ldh	a,(_LCDC_REG+0) ; x
-   073C F6 01              7572 	or	a,#0x01
-   073E E0 00              7573 	ldh	(_LCDC_REG+0),a
-                           7574 ;	main.c 280
-                           7575 ; genOr
-                           7576 ; AOP_SFR for _LCDC_REG
-                           7577 ; Type res[4] = l[4]&r[1]
-                           7578 ; Size res[1] = l[1]&r[1]
-   0740 F0 00              7579 	ldh	a,(_LCDC_REG+0) ; x
-   0742 F6 02              7580 	or	a,#0x02
-   0744 E0 00              7581 	ldh	(_LCDC_REG+0),a
-                           7582 ;	main.c 281
-                           7583 ; genOr
-                           7584 ; AOP_SFR for _LCDC_REG
-                           7585 ; Type res[4] = l[4]&r[1]
-                           7586 ; Size res[1] = l[1]&r[1]
-   0746 F0 00              7587 	ldh	a,(_LCDC_REG+0) ; x
-   0748 F6 80              7588 	or	a,#0x80
-   074A E0 00              7589 	ldh	(_LCDC_REG+0),a
-                           7590 ;	main.c 283
-                           7591 ; genLabel
-   074C                    7592 00114$:
-                           7593 ;	main.c 285
-                           7594 ; genCall
-   074C CD 00 00           7595 	call	_joypad
-   074F 4B                 7596 	ld	c,e
-                           7597 ; genAnd
-   0750 79                 7598 	ld	a,c
-   0751 CB 67              7599 	bit	4,a
-   0753 CA 72 07           7600 	jp	z,00105$
-                           7601 ;	main.c 287
-                           7602 ; genCmpEq
-                           7603 ; AOP_HL for _gameOver
-   0756 21 7F 03           7604 	ld	hl,#_gameOver + 0
-   0759 7E                 7605 	ld	a,(hl)
-   075A B7                 7606 	or	a,a
-   075B C2 60 07           7607 	jp	nz,00125$
-   075E 18 03              7608 	jr	00126$
-   0760                    7609 00125$:
-   0760 C3 6F 07           7610 	jp	00102$
-   0763                    7611 00126$:
-                           7612 ;	main.c 289
-                           7613 ; genIpush
-   0763 21 50 03           7614 	ld	hl,#_dinosaur + 0
-   0766 E5                 7615 	push	hl
-                           7616 ; genCall
-   0767 CD E2 06           7617 	call	_jump
-   076A E8 02              7618 	lda	sp,2(sp)
-                           7619 ; genGoto
-   076C C3 72 07           7620 	jp	00105$
-                           7621 ; genLabel
-   076F                    7622 00102$:
-                           7623 ;	main.c 293
-                           7624 ; genCall
-   076F CD CB 06           7625 	call	_init
-                           7626 ; genLabel
-   0772                    7627 00105$:
-                           7628 ;	main.c 296
-                           7629 ; genCall
-   0772 CD AB 06           7630 	call	_updateBackground
-                           7631 ;	main.c 297
-                           7632 ; genCall
-   0775 CD D5 05           7633 	call	_updateFont
-                           7634 ;	main.c 299
-                           7635 ; genCall
-   0778 CD 3A 02           7636 	call	_updateDino
-                           7637 ;	main.c 300
-                           7638 ; genCall
-   077B CD 9D 04           7639 	call	_updateCactus
-                           7640 ;	main.c 302
-                           7641 ; genIpush
-   077E 21 57 03           7642 	ld	hl,#_cactus + 0
-   0781 E5                 7643 	push	hl
-                           7644 ; genIpush
-   0782 21 50 03           7645 	ld	hl,#_dinosaur + 0
-   0785 E5                 7646 	push	hl
-                           7647 ; genCall
-   0786 CD C2 04           7648 	call	_checkCollision
-   0789 4B                 7649 	ld	c,e
-   078A E8 04              7650 	lda	sp,4(sp)
-                           7651 ; genIfx
-                           7652 ; Removed redundent or a,a
-   078C AF                 7653 	xor	a,a
-   078D B1                 7654 	or	a,c
-   078E C2 CA 07           7655 	jp	nz,00108$
-                           7656 ; genPlus
-                           7657 ; genPlusIncr
-   0791 01 5E 03           7658 	ld	bc,#_cactus + 0 + 7
-                           7659 ; genIpush
-   0794 C5                 7660 	push	bc
-                           7661 ; genIpush
-   0795 21 50 03           7662 	ld	hl,#_dinosaur + 0
-   0798 E5                 7663 	push	hl
-                           7664 ; genCall
-   0799 CD C2 04           7665 	call	_checkCollision
-   079C 4B                 7666 	ld	c,e
-   079D E8 04              7667 	lda	sp,4(sp)
-                           7668 ; genIfx
-                           7669 ; Removed redundent or a,a
-   079F AF                 7670 	xor	a,a
-   07A0 B1                 7671 	or	a,c
-   07A1 C2 CA 07           7672 	jp	nz,00108$
-                           7673 ; genPlus
-                           7674 ; genPlusIncr
-   07A4 01 65 03           7675 	ld	bc,#_cactus + 0 + 14
-                           7676 ; genIpush
-   07A7 C5                 7677 	push	bc
-                           7678 ; genIpush
-   07A8 21 50 03           7679 	ld	hl,#_dinosaur + 0
-   07AB E5                 7680 	push	hl
-                           7681 ; genCall
-   07AC CD C2 04           7682 	call	_checkCollision
-   07AF 4B                 7683 	ld	c,e
-   07B0 E8 04              7684 	lda	sp,4(sp)
-                           7685 ; genIfx
-                           7686 ; Removed redundent or a,a
-   07B2 AF                 7687 	xor	a,a
-   07B3 B1                 7688 	or	a,c
-   07B4 C2 CA 07           7689 	jp	nz,00108$
-                           7690 ; genPlus
-                           7691 ; genPlusIncr
-   07B7 01 6C 03           7692 	ld	bc,#_cactus + 0 + 21
-                           7693 ; genIpush
-   07BA C5                 7694 	push	bc
-                           7695 ; genIpush
-   07BB 21 50 03           7696 	ld	hl,#_dinosaur + 0
-   07BE E5                 7697 	push	hl
-                           7698 ; genCall
-   07BF CD C2 04           7699 	call	_checkCollision
-   07C2 4B                 7700 	ld	c,e
-   07C3 E8 04              7701 	lda	sp,4(sp)
-                           7702 ; genIfx
-                           7703 ; Removed redundent or a,a
-   07C5 AF                 7704 	xor	a,a
-   07C6 B1                 7705 	or	a,c
-   07C7 CA 1D 08           7706 	jp	z,00109$
-                           7707 ; genLabel
-   07CA                    7708 00108$:
-                           7709 ;	main.c 304
-                           7710 ; genCmpEq
-                           7711 ; AOP_HL for _gameOver
-   07CA 21 7F 03           7712 	ld	hl,#_gameOver + 0
-   07CD 7E                 7713 	ld	a,(hl)
-   07CE B7                 7714 	or	a,a
-   07CF C2 D4 07           7715 	jp	nz,00127$
-   07D2 18 03              7716 	jr	00128$
-   07D4                    7717 00127$:
-   07D4 C3 1D 08           7718 	jp	00109$
-   07D7                    7719 00128$:
-                           7720 ;	main.c 306
-                           7721 ; genIpush
-   07D7 21 00 00           7722 	ld	hl,#0x0000
-   07DA E5                 7723 	push	hl
-                           7724 ; genIpush
-   07DB 21 57 03           7725 	ld	hl,#_cactus + 0
-   07DE E5                 7726 	push	hl
-                           7727 ; genCall
-   07DF CD F5 03           7728 	call	_stop
-   07E2 E8 04              7729 	lda	sp,4(sp)
-                           7730 ;	main.c 307
-                           7731 ; genIpush
-   07E4 21 01 00           7732 	ld	hl,#0x0001
-   07E7 E5                 7733 	push	hl
-                           7734 ; genIpush
-   07E8 21 57 03           7735 	ld	hl,#_cactus + 0
-   07EB E5                 7736 	push	hl
-                           7737 ; genCall
-   07EC CD F5 03           7738 	call	_stop
-   07EF E8 04              7739 	lda	sp,4(sp)
-                           7740 ;	main.c 308
-                           7741 ; genIpush
-   07F1 21 02 00           7742 	ld	hl,#0x0002
-   07F4 E5                 7743 	push	hl
-                           7744 ; genIpush
-   07F5 21 57 03           7745 	ld	hl,#_cactus + 0
-   07F8 E5                 7746 	push	hl
-                           7747 ; genCall
-   07F9 CD F5 03           7748 	call	_stop
-   07FC E8 04              7749 	lda	sp,4(sp)
-                           7750 ;	main.c 309
-                           7751 ; genIpush
-   07FE 21 03 00           7752 	ld	hl,#0x0003
-   0801 E5                 7753 	push	hl
-                           7754 ; genIpush
-   0802 21 57 03           7755 	ld	hl,#_cactus + 0
-   0805 E5                 7756 	push	hl
+                           7394 ; AOP_HL for _score
+   06BF 7E                 7395 	ld	a,(hl)
+   06C0 F5                 7396 	push	af
+   06C1 33                 7397 	inc	sp
+                           7398 ; genCall
+   06C2 CD 00 00           7399 	call	__divuchar
+   06C5 4B                 7400 	ld	c,e
+   06C6 E8 02              7401 	lda	sp,2(sp)
+                           7402 ; genCast
+                           7403 ; Removed redundent load
+   06C8 79                 7404 	ld	a,c
+                           7405 ; genCast: sign extend untested.
+   06C9 17                 7406 	rla	
+   06CA 9F                 7407 	sbc	a,a
+   06CB 47                 7408 	ld	b,a
+                           7409 ; genIpush
+   06CC 21 00 00           7410 	ld	hl,#0x0000
+   06CF E5                 7411 	push	hl
+                           7412 ; genIpush
+   06D0 C5                 7413 	push	bc
+                           7414 ; genCall
+   06D1 CD 27 00           7415 	call	_setScore
+   06D4 E8 04              7416 	lda	sp,4(sp)
+                           7417 ;	main.c 239
+                           7418 ; genIpush
+   06D6 3E 0A              7419 	ld	a,#0x0A
+   06D8 F5                 7420 	push	af
+   06D9 33                 7421 	inc	sp
+                           7422 ; genIpush
+                           7423 ; AOP_HL for _score
+   06DA 21 80 03           7424 	ld	hl,#_score + 0
+   06DD 7E                 7425 	ld	a,(hl)
+   06DE F5                 7426 	push	af
+   06DF 33                 7427 	inc	sp
+                           7428 ; genCall
+   06E0 CD 00 00           7429 	call	__moduchar
+   06E3 4B                 7430 	ld	c,e
+   06E4 E8 02              7431 	lda	sp,2(sp)
+                           7432 ; genCast
+                           7433 ; Removed redundent load
+   06E6 79                 7434 	ld	a,c
+                           7435 ; genCast: sign extend untested.
+   06E7 17                 7436 	rla	
+   06E8 9F                 7437 	sbc	a,a
+   06E9 47                 7438 	ld	b,a
+                           7439 ; genIpush
+   06EA 21 01 00           7440 	ld	hl,#0x0001
+   06ED E5                 7441 	push	hl
+                           7442 ; genIpush
+   06EE C5                 7443 	push	bc
+                           7444 ; genCall
+   06EF CD 27 00           7445 	call	_setScore
+   06F2 E8 04              7446 	lda	sp,4(sp)
+                           7447 ;	main.c 241
+                           7448 ; genIpush
+   06F4 21 81 03           7449 	ld	hl,#_scoreMap + 0
+   06F7 E5                 7450 	push	hl
+                           7451 ; genIpush
+   06F8 3E 01              7452 	ld	a,#0x01
+   06FA F5                 7453 	push	af
+   06FB 33                 7454 	inc	sp
+                           7455 ; genIpush
+   06FC 3E 02              7456 	ld	a,#0x02
+   06FE F5                 7457 	push	af
+   06FF 33                 7458 	inc	sp
+                           7459 ; genIpush
+   0700 3E 00              7460 	ld	a,#0x00
+   0702 F5                 7461 	push	af
+   0703 33                 7462 	inc	sp
+                           7463 ; genIpush
+   0704 3E 00              7464 	ld	a,#0x00
+   0706 F5                 7465 	push	af
+   0707 33                 7466 	inc	sp
+                           7467 ; genCall
+   0708 CD 00 00           7468 	call	_set_win_tiles
+   070B E8 06              7469 	lda	sp,6(sp)
+                           7470 ; genLabel
+   070D                    7471 00107$:
+                           7472 ; genEndFunction
+   070D E8 01              7473 	lda	sp,1(sp)
+   070F C1                 7474 	pop	bc
+   0710 C9                 7475 	ret
+   0711                    7476 ___updateFont_end:
+                           7477 ;	main.c 245
+                           7478 ; genLabel
+                           7479 ; genFunction
+                           7480 ;	---------------------------------
+                           7481 ; Function initBackground
+                           7482 ; ---------------------------------
+   0711                    7483 ___initBackground_start:
+   0711                    7484 _initBackground:
+                           7485 	
+                           7486 ;	main.c 247
+                           7487 ; genIpush
+   0711 21 40 00           7488 	ld	hl,#_mapTile + 0
+   0714 E5                 7489 	push	hl
+                           7490 ; genIpush
+   0715 3E 04              7491 	ld	a,#0x04
+   0717 F5                 7492 	push	af
+   0718 33                 7493 	inc	sp
+                           7494 ; genIpush
+   0719 3E 26              7495 	ld	a,#0x26
+   071B F5                 7496 	push	af
+   071C 33                 7497 	inc	sp
+                           7498 ; genCall
+   071D CD 00 00           7499 	call	_set_bkg_data
+   0720 E8 04              7500 	lda	sp,4(sp)
+                           7501 ;	main.c 248
+                           7502 ; genIpush
+   0722 21 80 00           7503 	ld	hl,#_map + 0
+   0725 E5                 7504 	push	hl
+                           7505 ; genIpush
+   0726 3E 12              7506 	ld	a,#0x12
+   0728 F5                 7507 	push	af
+   0729 33                 7508 	inc	sp
+                           7509 ; genIpush
+   072A 3E 28              7510 	ld	a,#0x28
+   072C F5                 7511 	push	af
+   072D 33                 7512 	inc	sp
+                           7513 ; genIpush
+   072E 3E 00              7514 	ld	a,#0x00
+   0730 F5                 7515 	push	af
+   0731 33                 7516 	inc	sp
+                           7517 ; genIpush
+   0732 3E 00              7518 	ld	a,#0x00
+   0734 F5                 7519 	push	af
+   0735 33                 7520 	inc	sp
+                           7521 ; genCall
+   0736 CD 00 00           7522 	call	_set_bkg_tiles
+   0739 E8 06              7523 	lda	sp,6(sp)
+                           7524 ; genLabel
+   073B                    7525 00101$:
+                           7526 ; genEndFunction
+                           7527 	
+   073B C9                 7528 	ret
+   073C                    7529 ___initBackground_end:
+                           7530 ;	main.c 251
+                           7531 ; genLabel
+                           7532 ; genFunction
+                           7533 ;	---------------------------------
+                           7534 ; Function updateBackground
+                           7535 ; ---------------------------------
+   073C                    7536 ___updateBackground_start:
+   073C                    7537 _updateBackground:
+   073C C5                 7538 	push	bc
+                           7539 	
+                           7540 ;	main.c 253
+                           7541 ; genCmpEq
+                           7542 ; AOP_HL for _gameOver
+   073D 21 7F 03           7543 	ld	hl,#_gameOver + 0
+   0740 7E                 7544 	ld	a,(hl)
+   0741 B7                 7545 	or	a,a
+   0742 C2 47 07           7546 	jp	nz,00106$
+   0745 18 03              7547 	jr	00107$
+   0747                    7548 00106$:
+   0747 C3 5A 07           7549 	jp	00103$
+   074A                    7550 00107$:
+                           7551 ;	main.c 255
+                           7552 ; genAssign
+                           7553 ; AOP_HL for _maxCactusSpeedX
+   074A 21 7E 03           7554 	ld	hl,#_maxCactusSpeedX + 0
+   074D 4E                 7555 	ld	c,(hl)
+                           7556 ; genIpush
+   074E 3E 00              7557 	ld	a,#0x00
+   0750 F5                 7558 	push	af
+   0751 33                 7559 	inc	sp
+                           7560 ; genIpush
+   0752 79                 7561 	ld	a,c
+   0753 F5                 7562 	push	af
+   0754 33                 7563 	inc	sp
+                           7564 ; genCall
+   0755 CD 00 00           7565 	call	_scroll_bkg
+   0758 E8 02              7566 	lda	sp,2(sp)
+                           7567 ; genLabel
+   075A                    7568 00103$:
+                           7569 ; genEndFunction
+                           7570 	
+   075A C1                 7571 	pop	bc
+   075B C9                 7572 	ret
+   075C                    7573 ___updateBackground_end:
+                           7574 ;	main.c 259
+                           7575 ; genLabel
+                           7576 ; genFunction
+                           7577 ;	---------------------------------
+                           7578 ; Function init
+                           7579 ; ---------------------------------
+   075C                    7580 ___init_start:
+   075C                    7581 _init:
+                           7582 	
+                           7583 ;	main.c 261
+                           7584 ; genCall
+   075C CD 29 06           7585 	call	_initFont
+                           7586 ;	main.c 262
+                           7587 ; genCall
+   075F CD 11 07           7588 	call	_initBackground
+                           7589 ;	main.c 264
+                           7590 ; genCall
+   0762 CD C4 01           7591 	call	_initDino
+                           7592 ;	main.c 265
+                           7593 ; genCall
+   0765 CD B4 04           7594 	call	_initCactus
+                           7595 ;	main.c 267
+                           7596 ; genAssign
+                           7597 ; AOP_HL for _gameOver
+   0768 21 7F 03           7598 	ld	hl,#_gameOver + 0
+   076B 36 00              7599 	ld	(hl),#0x00
+                           7600 ;	main.c 268
+                           7601 ; genAssign
+                           7602 ; AOP_HL for _score
+   076D 21 80 03           7603 	ld	hl,#_score + 0
+   0770 36 00              7604 	ld	(hl),#0x00
+                           7605 ; genLabel
+   0772                    7606 00101$:
+                           7607 ; genEndFunction
+                           7608 	
+   0772 C9                 7609 	ret
+   0773                    7610 ___init_end:
+                           7611 ;	main.c 271
+                           7612 ; genLabel
+                           7613 ; genFunction
+                           7614 ;	---------------------------------
+                           7615 ; Function jump
+                           7616 ; ---------------------------------
+   0773                    7617 ___jump_start:
+   0773                    7618 _jump:
+   0773 C5                 7619 	push	bc
+   0774 E8 FC              7620 	lda	sp,-4(sp)
+                           7621 ;	main.c 273
+                           7622 ; genAssign
+                           7623 ; AOP_STK for 
+                           7624 ; AOP_STK for _jump_sloc1_1_0
+   0776 F8 08              7625 	lda	hl,8(sp)
+   0778 2A                 7626 	ld	a,(hl+)
+   0779 5E                 7627 	ld	e,(hl)
+   077A F8 00              7628 	lda	hl,0(sp)
+   077C 22                 7629 	ld	(hl+),a
+   077D 73                 7630 	ld	(hl),e
+                           7631 ; genPlus
+                           7632 ; AOP_STK for _jump_sloc1_1_0
+                           7633 ; AOP_STK for _jump_sloc0_1_0
+                           7634 ; genPlusIncr
+                           7635 ;	genPlusIncr failed
+   077E 2B                 7636 	dec	hl
+   077F 5E                 7637 	ld	e,(hl)
+   0780 23                 7638 	inc	hl
+   0781 56                 7639 	ld	d,(hl)
+   0782 21 04 00           7640 	ld	hl,#0x0004
+   0785 19                 7641 	add	hl,de
+   0786 7D                 7642 	ld	a,l
+   0787 54                 7643 	ld	d,h
+   0788 F8 02              7644 	lda	hl,2(sp)
+   078A 22                 7645 	ld	(hl+),a
+   078B 72                 7646 	ld	(hl),d
+                           7647 ; genPointerGet
+                           7648 ; AOP_STK for _jump_sloc0_1_0
+   078C 2B                 7649 	dec	hl
+   078D 5E                 7650 	ld	e,(hl)
+   078E 23                 7651 	inc	hl
+   078F 56                 7652 	ld	d,(hl)
+   0790 1A                 7653 	ld	a,(de)
+   0791 4F                 7654 	ld	c,a
+                           7655 ; genCmpEq
+   0792 79                 7656 	ld	a,c
+   0793 B7                 7657 	or	a,a
+   0794 C2 99 07           7658 	jp	nz,00106$
+   0797 18 03              7659 	jr	00107$
+   0799                    7660 00106$:
+   0799 C3 BD 07           7661 	jp	00103$
+   079C                    7662 00107$:
+                           7663 ;	main.c 275
+                           7664 ; genPlus
+                           7665 ; AOP_STK for _jump_sloc1_1_0
+                           7666 ; genPlusIncr
+                           7667 ;	genPlusIncr failed
+   079C F8 00              7668 	lda	hl,0(sp)
+   079E 5E                 7669 	ld	e,(hl)
+   079F 23                 7670 	inc	hl
+   07A0 56                 7671 	ld	d,(hl)
+   07A1 21 03 00           7672 	ld	hl,#0x0003
+   07A4 19                 7673 	add	hl,de
+   07A5 5D                 7674 	ld	e,l
+   07A6 54                 7675 	ld	d,h
+                           7676 ; genUminus
+                           7677 ; AOP_HL for _maxDinosaurSpeedY
+   07A7 AF                 7678 	xor	a,a
+   07A8 21 7D 03           7679 	ld	hl,#_maxDinosaurSpeedY + 0
+   07AB 3E 00              7680 	ld	a,#0x00
+   07AD 9E                 7681 	sbc	a,(hl)
+   07AE 4F                 7682 	ld	c,a
+                           7683 ; genAssign (pointer)
+   07AF 79                 7684 	ld	a,c
+   07B0 12                 7685 	ld	(de),a
+                           7686 ;	main.c 276
+                           7687 ; genPlus
+                           7688 ; AOP_HL for _score
+                           7689 ; genPlusIncr
+   07B1 21 80 03           7690 	ld	hl,#_score + 0
+   07B4 34                 7691 	inc	(hl)
+                           7692 ;	main.c 277
+                           7693 ; genAssign (pointer)
+                           7694 ; AOP_STK for _jump_sloc0_1_0
+   07B5 F8 02              7695 	lda	hl,2(sp)
+   07B7 5E                 7696 	ld	e,(hl)
+   07B8 23                 7697 	inc	hl
+   07B9 56                 7698 	ld	d,(hl)
+   07BA 3E 01              7699 	ld	a,#0x01
+   07BC 12                 7700 	ld	(de),a
+                           7701 ; genLabel
+   07BD                    7702 00103$:
+                           7703 ; genEndFunction
+   07BD E8 04              7704 	lda	sp,4(sp)
+   07BF C1                 7705 	pop	bc
+   07C0 C9                 7706 	ret
+   07C1                    7707 ___jump_end:
+                           7708 ;	main.c 281
+                           7709 ; genLabel
+                           7710 ; genFunction
+                           7711 ;	---------------------------------
+                           7712 ; Function main
+                           7713 ; ---------------------------------
+   07C1                    7714 ___main_start:
+   07C1                    7715 _main:
+   07C1 C5                 7716 	push	bc
+                           7717 	
+                           7718 ;	main.c 283
+                           7719 ; genCall
+   07C2 CD 5C 07           7720 	call	_init
+                           7721 ;	main.c 285
+                           7722 ; genOr
+                           7723 ; AOP_SFR for _LCDC_REG
+                           7724 ; Type res[4] = l[4]&r[1]
+                           7725 ; Size res[1] = l[1]&r[1]
+   07C5 F0 00              7726 	ldh	a,(_LCDC_REG+0) ; x
+   07C7 F6 20              7727 	or	a,#0x20
+   07C9 E0 00              7728 	ldh	(_LCDC_REG+0),a
+                           7729 ;	main.c 286
+                           7730 ; genOr
+                           7731 ; AOP_SFR for _LCDC_REG
+                           7732 ; Type res[4] = l[4]&r[1]
+                           7733 ; Size res[1] = l[1]&r[1]
+   07CB F0 00              7734 	ldh	a,(_LCDC_REG+0) ; x
+   07CD F6 01              7735 	or	a,#0x01
+   07CF E0 00              7736 	ldh	(_LCDC_REG+0),a
+                           7737 ;	main.c 288
+                           7738 ; genOr
+                           7739 ; AOP_SFR for _LCDC_REG
+                           7740 ; Type res[4] = l[4]&r[1]
+                           7741 ; Size res[1] = l[1]&r[1]
+   07D1 F0 00              7742 	ldh	a,(_LCDC_REG+0) ; x
+   07D3 F6 02              7743 	or	a,#0x02
+   07D5 E0 00              7744 	ldh	(_LCDC_REG+0),a
+                           7745 ;	main.c 289
+                           7746 ; genOr
+                           7747 ; AOP_SFR for _LCDC_REG
+                           7748 ; Type res[4] = l[4]&r[1]
+                           7749 ; Size res[1] = l[1]&r[1]
+   07D7 F0 00              7750 	ldh	a,(_LCDC_REG+0) ; x
+   07D9 F6 80              7751 	or	a,#0x80
+   07DB E0 00              7752 	ldh	(_LCDC_REG+0),a
+                           7753 ;	main.c 291
+                           7754 ; genLabel
+   07DD                    7755 00114$:
+                           7756 ;	main.c 293
                            7757 ; genCall
-   0806 CD F5 03           7758 	call	_stop
-   0809 E8 04              7759 	lda	sp,4(sp)
-                           7760 ;	main.c 311
-                           7761 ; genIpush
-   080B 21 00 00           7762 	ld	hl,#0x0000
-   080E E5                 7763 	push	hl
-                           7764 ; genIpush
-   080F 21 50 03           7765 	ld	hl,#_dinosaur + 0
-   0812 E5                 7766 	push	hl
-                           7767 ; genCall
-   0813 CD F5 03           7768 	call	_stop
-   0816 E8 04              7769 	lda	sp,4(sp)
-                           7770 ;	main.c 313
-                           7771 ; genAssign
-                           7772 ; AOP_HL for _gameOver
-   0818 21 7F 03           7773 	ld	hl,#_gameOver + 0
-   081B 36 01              7774 	ld	(hl),#0x01
-                           7775 ; genLabel
-   081D                    7776 00109$:
-                           7777 ;	main.c 316
-                           7778 ; genIpush
-   081D 3E 03              7779 	ld	a,#0x03
-   081F F5                 7780 	push	af
-   0820 33                 7781 	inc	sp
-                           7782 ; genCall
-   0821 CD 13 00           7783 	call	_performantDelay
-   0824 E8 01              7784 	lda	sp,1(sp)
-                           7785 ; genGoto
-   0826 C3 4C 07           7786 	jp	00114$
-                           7787 ; genLabel
-   0829                    7788 00116$:
-                           7789 ; genEndFunction
-                           7790 	
-   0829 C1                 7791 	pop	bc
-   082A C9                 7792 	ret
-   082B                    7793 ___main_end:
-                           7794 	.area _CODE
+   07DD CD 00 00           7758 	call	_joypad
+   07E0 4B                 7759 	ld	c,e
+                           7760 ; genAnd
+   07E1 79                 7761 	ld	a,c
+   07E2 CB 67              7762 	bit	4,a
+   07E4 CA 03 08           7763 	jp	z,00105$
+                           7764 ;	main.c 295
+                           7765 ; genCmpEq
+                           7766 ; AOP_HL for _gameOver
+   07E7 21 7F 03           7767 	ld	hl,#_gameOver + 0
+   07EA 7E                 7768 	ld	a,(hl)
+   07EB B7                 7769 	or	a,a
+   07EC C2 F1 07           7770 	jp	nz,00125$
+   07EF 18 03              7771 	jr	00126$
+   07F1                    7772 00125$:
+   07F1 C3 00 08           7773 	jp	00102$
+   07F4                    7774 00126$:
+                           7775 ;	main.c 297
+                           7776 ; genIpush
+   07F4 21 50 03           7777 	ld	hl,#_dinosaur + 0
+   07F7 E5                 7778 	push	hl
+                           7779 ; genCall
+   07F8 CD 73 07           7780 	call	_jump
+   07FB E8 02              7781 	lda	sp,2(sp)
+                           7782 ; genGoto
+   07FD C3 03 08           7783 	jp	00105$
+                           7784 ; genLabel
+   0800                    7785 00102$:
+                           7786 ;	main.c 301
+                           7787 ; genCall
+   0800 CD 5C 07           7788 	call	_init
+                           7789 ; genLabel
+   0803                    7790 00105$:
+                           7791 ;	main.c 304
+                           7792 ; genCall
+   0803 CD 3C 07           7793 	call	_updateBackground
+                           7794 ;	main.c 305
+                           7795 ; genCall
+   0806 CD 66 06           7796 	call	_updateFont
+                           7797 ;	main.c 307
+                           7798 ; genCall
+   0809 CD 3A 02           7799 	call	_updateDino
+                           7800 ;	main.c 308
+                           7801 ; genCall
+   080C CD 2E 05           7802 	call	_updateCactus
+                           7803 ;	main.c 310
+                           7804 ; genIpush
+   080F 21 57 03           7805 	ld	hl,#_cactus + 0
+   0812 E5                 7806 	push	hl
+                           7807 ; genIpush
+   0813 21 50 03           7808 	ld	hl,#_dinosaur + 0
+   0816 E5                 7809 	push	hl
+                           7810 ; genCall
+   0817 CD 53 05           7811 	call	_checkCollision
+   081A 4B                 7812 	ld	c,e
+   081B E8 04              7813 	lda	sp,4(sp)
+                           7814 ; genIfx
+                           7815 ; Removed redundent or a,a
+   081D AF                 7816 	xor	a,a
+   081E B1                 7817 	or	a,c
+   081F C2 5B 08           7818 	jp	nz,00108$
+                           7819 ; genPlus
+                           7820 ; genPlusIncr
+   0822 01 5E 03           7821 	ld	bc,#_cactus + 0 + 7
+                           7822 ; genIpush
+   0825 C5                 7823 	push	bc
+                           7824 ; genIpush
+   0826 21 50 03           7825 	ld	hl,#_dinosaur + 0
+   0829 E5                 7826 	push	hl
+                           7827 ; genCall
+   082A CD 53 05           7828 	call	_checkCollision
+   082D 4B                 7829 	ld	c,e
+   082E E8 04              7830 	lda	sp,4(sp)
+                           7831 ; genIfx
+                           7832 ; Removed redundent or a,a
+   0830 AF                 7833 	xor	a,a
+   0831 B1                 7834 	or	a,c
+   0832 C2 5B 08           7835 	jp	nz,00108$
+                           7836 ; genPlus
+                           7837 ; genPlusIncr
+   0835 01 65 03           7838 	ld	bc,#_cactus + 0 + 14
+                           7839 ; genIpush
+   0838 C5                 7840 	push	bc
+                           7841 ; genIpush
+   0839 21 50 03           7842 	ld	hl,#_dinosaur + 0
+   083C E5                 7843 	push	hl
+                           7844 ; genCall
+   083D CD 53 05           7845 	call	_checkCollision
+   0840 4B                 7846 	ld	c,e
+   0841 E8 04              7847 	lda	sp,4(sp)
+                           7848 ; genIfx
+                           7849 ; Removed redundent or a,a
+   0843 AF                 7850 	xor	a,a
+   0844 B1                 7851 	or	a,c
+   0845 C2 5B 08           7852 	jp	nz,00108$
+                           7853 ; genPlus
+                           7854 ; genPlusIncr
+   0848 01 6C 03           7855 	ld	bc,#_cactus + 0 + 21
+                           7856 ; genIpush
+   084B C5                 7857 	push	bc
+                           7858 ; genIpush
+   084C 21 50 03           7859 	ld	hl,#_dinosaur + 0
+   084F E5                 7860 	push	hl
+                           7861 ; genCall
+   0850 CD 53 05           7862 	call	_checkCollision
+   0853 4B                 7863 	ld	c,e
+   0854 E8 04              7864 	lda	sp,4(sp)
+                           7865 ; genIfx
+                           7866 ; Removed redundent or a,a
+   0856 AF                 7867 	xor	a,a
+   0857 B1                 7868 	or	a,c
+   0858 CA AE 08           7869 	jp	z,00109$
+                           7870 ; genLabel
+   085B                    7871 00108$:
+                           7872 ;	main.c 312
+                           7873 ; genCmpEq
+                           7874 ; AOP_HL for _gameOver
+   085B 21 7F 03           7875 	ld	hl,#_gameOver + 0
+   085E 7E                 7876 	ld	a,(hl)
+   085F B7                 7877 	or	a,a
+   0860 C2 65 08           7878 	jp	nz,00127$
+   0863 18 03              7879 	jr	00128$
+   0865                    7880 00127$:
+   0865 C3 AE 08           7881 	jp	00109$
+   0868                    7882 00128$:
+                           7883 ;	main.c 314
+                           7884 ; genIpush
+   0868 21 00 00           7885 	ld	hl,#0x0000
+   086B E5                 7886 	push	hl
+                           7887 ; genIpush
+   086C 21 57 03           7888 	ld	hl,#_cactus + 0
+   086F E5                 7889 	push	hl
+                           7890 ; genCall
+   0870 CD 86 04           7891 	call	_stop
+   0873 E8 04              7892 	lda	sp,4(sp)
+                           7893 ;	main.c 315
+                           7894 ; genIpush
+   0875 21 01 00           7895 	ld	hl,#0x0001
+   0878 E5                 7896 	push	hl
+                           7897 ; genIpush
+   0879 21 57 03           7898 	ld	hl,#_cactus + 0
+   087C E5                 7899 	push	hl
+                           7900 ; genCall
+   087D CD 86 04           7901 	call	_stop
+   0880 E8 04              7902 	lda	sp,4(sp)
+                           7903 ;	main.c 316
+                           7904 ; genIpush
+   0882 21 02 00           7905 	ld	hl,#0x0002
+   0885 E5                 7906 	push	hl
+                           7907 ; genIpush
+   0886 21 57 03           7908 	ld	hl,#_cactus + 0
+   0889 E5                 7909 	push	hl
+                           7910 ; genCall
+   088A CD 86 04           7911 	call	_stop
+   088D E8 04              7912 	lda	sp,4(sp)
+                           7913 ;	main.c 317
+                           7914 ; genIpush
+   088F 21 03 00           7915 	ld	hl,#0x0003
+   0892 E5                 7916 	push	hl
+                           7917 ; genIpush
+   0893 21 57 03           7918 	ld	hl,#_cactus + 0
+   0896 E5                 7919 	push	hl
+                           7920 ; genCall
+   0897 CD 86 04           7921 	call	_stop
+   089A E8 04              7922 	lda	sp,4(sp)
+                           7923 ;	main.c 319
+                           7924 ; genIpush
+   089C 21 00 00           7925 	ld	hl,#0x0000
+   089F E5                 7926 	push	hl
+                           7927 ; genIpush
+   08A0 21 50 03           7928 	ld	hl,#_dinosaur + 0
+   08A3 E5                 7929 	push	hl
+                           7930 ; genCall
+   08A4 CD 86 04           7931 	call	_stop
+   08A7 E8 04              7932 	lda	sp,4(sp)
+                           7933 ;	main.c 321
+                           7934 ; genAssign
+                           7935 ; AOP_HL for _gameOver
+   08A9 21 7F 03           7936 	ld	hl,#_gameOver + 0
+   08AC 36 01              7937 	ld	(hl),#0x01
+                           7938 ; genLabel
+   08AE                    7939 00109$:
+                           7940 ;	main.c 324
+                           7941 ; genIpush
+   08AE 3E 03              7942 	ld	a,#0x03
+   08B0 F5                 7943 	push	af
+   08B1 33                 7944 	inc	sp
+                           7945 ; genCall
+   08B2 CD 13 00           7946 	call	_performantDelay
+   08B5 E8 01              7947 	lda	sp,1(sp)
+                           7948 ; genGoto
+   08B7 C3 DD 07           7949 	jp	00114$
+                           7950 ; genLabel
+   08BA                    7951 00116$:
+                           7952 ; genEndFunction
+                           7953 	
+   08BA C1                 7954 	pop	bc
+   08BB C9                 7955 	ret
+   08BC                    7956 ___main_end:
+                           7957 	.area _CODE
 ASxxxx Assembler V01.75  (GameBoy Z80-like CPU), page 1.
 
 Symbol Table
@@ -7851,27 +8014,27 @@ Symbol Table
     _VBK_REG                           **** GX
     _WX_REG                            **** GX
     _WY_REG                            **** GX
-  0 ___checkCollision_end              0598 R
-  0 ___checkCollision_start            04C2 R
+  0 ___checkCollision_end              0629 R
+  0 ___checkCollision_start            0553 R
   0 ___displayCactus_end               0363 R
   0 ___displayCactus_start             0296 R
   0 ___fall_end                        01C4 R
   0 ___fall_start                      012D R
-  0 ___initBackground_end              06AB R
-  0 ___initBackground_start            0680 R
-  0 ___initCactus_end                  049D R
-  0 ___initCactus_start                0423 R
+  0 ___initBackground_end              073C R
+  0 ___initBackground_start            0711 R
+  0 ___initCactus_end                  052E R
+  0 ___initCactus_start                04B4 R
   0 ___initDino_end                    023A R
   0 ___initDino_start                  01C4 R
-  0 ___initFont_end                    05D5 R
-  0 ___initFont_start                  0598 R
-  0 ___init_end                        06E2 R
-  0 ___init_start                      06CB R
-  0 ___jump_end                        0730 R
-  0 ___jump_start                      06E2 R
-  0 ___main_end                        082B R
-  0 ___main_start                      0730 R
-  0 ___moveCactus_end                  03F5 R
+  0 ___initFont_end                    0666 R
+  0 ___initFont_start                  0629 R
+  0 ___init_end                        0773 R
+  0 ___init_start                      075C R
+  0 ___jump_end                        07C1 R
+  0 ___jump_start                      0773 R
+  0 ___main_end                        08BC R
+  0 ___main_start                      07C1 R
+  0 ___moveCactus_end                  0486 R
   0 ___moveCactus_start                0363 R
   0 ___move_end                        0013 R
   0 ___move_start                      0000 R
@@ -7879,16 +8042,16 @@ Symbol Table
   0 ___performantDelay_start           0013 R
   0 ___setScore_end                    012D R
   0 ___setScore_start                  0027 R
-  0 ___stop_end                        0423 R
-  0 ___stop_start                      03F5 R
-  0 ___updateBackground_end            06CB R
-  0 ___updateBackground_start          06AB R
-  0 ___updateCactus_end                04C2 R
-  0 ___updateCactus_start              049D R
+  0 ___stop_end                        04B4 R
+  0 ___stop_start                      0486 R
+  0 ___updateBackground_end            075C R
+  0 ___updateBackground_start          073C R
+  0 ___updateCactus_end                0553 R
+  0 ___updateCactus_start              052E R
   0 ___updateDino_end                  0296 R
   0 ___updateDino_start                023A R
-  0 ___updateFont_end                  0680 R
-  0 ___updateFont_start                05D5 R
+  0 ___updateFont_end                  0711 R
+  0 ___updateFont_start                0666 R
     __cpu                              **** GX
     __divuchar                         **** GX
     __io_in                            **** GX
@@ -7899,7 +8062,7 @@ Symbol Table
     __mulsint                          **** GX
   1 _cac                               0020 GR
   1 _cactus                            0357 GR
-  0 _checkCollision                    04C2 GR
+  0 _checkCollision                    0553 GR
   1 _dino                              0000 GR
   1 _dinosaur                          0350 GR
   0 _displayCactus                     0296 GR
@@ -7915,15 +8078,15 @@ Symbol Table
     _font_spect                        **** GX
   1 _gameOver                          037F GR
   1 _gravity                           037C GR
-  0 _init                              06CB GR
-  0 _initBackground                    0680 GR
-  0 _initCactus                        0423 GR
+  0 _init                              075C GR
+  0 _initBackground                    0711 GR
+  0 _initCactus                        04B4 GR
   0 _initDino                          01C4 GR
-  0 _initFont                          0598 GR
+  0 _initFont                          0629 GR
     _joypad                            **** GX
-  0 _jump                              06E2 GR
+  0 _jump                              0773 GR
   1 _jumpDistance                      037B GR
-  0 _main                              0730 GR
+  0 _main                              07C1 GR
   1 _map                               0080 GR
   1 _mapTile                           0040 GR
   1 _maxCactusSpeedX                   037E GR
@@ -7944,19 +8107,19 @@ Symbol Table
     _set_sprite_data                   **** GX
     _set_sprite_tile                   **** GX
     _set_win_tiles                     **** GX
-  0 _stop                              03F5 GR
+  0 _stop                              0486 GR
     _sys_time                          **** GX
-  0 _updateBackground                  06AB GR
-  0 _updateCactus                      049D GR
+  0 _updateBackground                  073C GR
+  0 _updateCactus                      052E GR
   0 _updateDino                        023A GR
-  0 _updateFont                        05D5 GR
+  0 _updateFont                        0666 GR
     _wait_vbl_done                     **** GX
 
 ASxxxx Assembler V01.75  (GameBoy Z80-like CPU), page 2.
 
 Area Table
 
-   0 _CODE                              size  82B   flags 0
+   0 _CODE                              size  8BC   flags 0
    1 _DATA                              size  387   flags 0
    2 _OVERLAY                           size    0   flags 0
    3 _ISEG                              size    0   flags 0
