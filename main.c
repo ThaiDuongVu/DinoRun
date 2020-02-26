@@ -28,7 +28,7 @@ UINT8 score = 0;
 
 unsigned char scoreMap[] =
 {
-    0x02, 0x02, 0x02, 0x02, 0x02, 0x02
+    0x02, 0x01, 0x01, 0x01, 0x01, 0x01
 };
 
 void move(UINT8 characterIndex, UINT8 x, UINT8 y)
@@ -221,7 +221,13 @@ void initFont()
     font = font_load(font_min);
     font_set(font);
 
-    set_win_tiles(0, 0, 1, 1, scoreMap);
+    scoreMap[0] = 0x02;
+    scoreMap[1] = 0x01;
+    scoreMap[2] = 0x01;
+    scoreMap[3] = 0x01;
+    scoreMap[4] = 0x01;
+
+    set_win_tiles(0, 0, 5, 1, scoreMap);
     move_win(7, 136);
 }
 
@@ -268,12 +274,20 @@ void init()
     score = 0;
 }
 
+void addScore()
+{
+    if (score < 99)
+    {
+        score++;
+    }
+}
+
 void jump(struct character* character)
 {
     if (character->isJumping == 0)
     {
         character->speedY = -maxDinosaurSpeedY;
-        score++;
+        addScore();
         character->isJumping = 1;
     }
 }
