@@ -1,0 +1,1 @@
+make.bat && main.gb
