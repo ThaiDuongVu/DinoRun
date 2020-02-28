@@ -36,11 +36,6 @@ unsigned char gameOverMap[] =
     0x12, 0x0C, 0x18, 0x10, 0x01, 0x1A, 0X21, 0X10, 0X1D
 };
 
-void move(UINT8 characterIndex, UINT8 x, UINT8 y)
-{
-    move_sprite(characterIndex, x, y);
-}
-
 void performantDelay(UINT8 delay)
 {
     UINT8 i = 0;
@@ -121,7 +116,7 @@ void initDino()
     dinosaur.halfSize = 4;
 
     set_sprite_tile(0, 0);
-    move(dinosaur.characterIndex, dinosaur.x, dinosaur.y);
+    move_sprite(dinosaur.characterIndex, dinosaur.x, dinosaur.y);
 }
 
 void updateDino()
@@ -145,7 +140,7 @@ void displayCactus(int index)
     cactus[index].halfSize = 4;
 
     set_sprite_tile(index + 1, index + 1);
-    move(cactus[index].characterIndex, cactus[index].x, cactus[index].y);
+    move_sprite(cactus[index].characterIndex, cactus[index].x, cactus[index].y);
 }
 
 void moveCactus(int index)
@@ -158,7 +153,7 @@ void moveCactus(int index)
         cactus[index].x = 50 + (index + 1) * (50 + (rand() % 3));
         set_sprite_tile(index + 1, index + 1);
 
-        move(cactus[index].characterIndex, cactus[index].x, cactus[index].y);
+        move_sprite(cactus[index].characterIndex, cactus[index].x, cactus[index].y);
     }
 
     scroll_sprite(cactus[index].characterIndex, -cactus[index].speedX, cactus[index].speedY);
