@@ -1,6 +1,6 @@
 /*
 
- DINO.H
+ CACTUS_TILE.H
 
  Include File.
 
@@ -24,8 +24,8 @@
 
 
 /* Bank of tiles. */
-#define dinoBank 0
+#define catusBank 0
 /* Start of tile array. */
-extern unsigned char dino[];
+extern unsigned char catus[];
 
-/* End of DINO.H */
+/* End of CAC.H */

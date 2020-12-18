@@ -4,10 +4,10 @@
 #include <stdlib.h>
 #include <gb/font.h>
 
-#include "dino.c"
-#include "cac.c"
+#include "dino_tile.c"
+#include "cactus_tile.c"
 
-#include "mapTile.c"
+#include "map_tile.c"
 #include "map.c"
 
 #include "character.c"
@@ -15,205 +15,192 @@
 struct character dinosaur;
 struct character cactus[5];
 
-UINT8 floorY = 107;
+UINT8 floor_y = 107;
 
-UINT8 jumpDistance = 20;
+UINT8 jump_distance = 20;
 UINT8 gravity = 3;
 
-UINT8 maxDinosaurSpeedY;
-UINT8 maxCactusSpeedX = 2;
+UINT8 max_dinosaur_speed_y;
+UINT8 max_cactus_speed_x = 2;
 
-BYTE gameOver = 0;
+BYTE is_game_over = 0;
 UINT8 score = 0;
 
-unsigned char scoreMap[] =
-{
-    0x02, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01
-};
+unsigned char score_map[] = {0x02, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01};
 
-unsigned char gameOverMap[] = 
-{
-    0x12, 0x0C, 0x18, 0x10, 0x01, 0x1A, 0X21, 0X10, 0X1D
-};
+unsigned char game_over_map[] = {0x12, 0x0C, 0x18, 0x10, 0x01, 0x1A, 0X21, 0X10, 0X1D};
 
-void performantDelay(UINT8 delay)
+void performant_delay(UINT8 delay)
 {
     UINT8 i = 0;
     for (i = 0; i < delay; i++)
-    {
         wait_vbl_done();
-    }
 }
 
-void setScore(int condition, int index)
+void set_score(int condition, int index)
 {
     switch (condition)
     {
     case 0:
-        scoreMap[index] = 0x02;
+        score_map[index] = 0x02;
         break;
     case 1:
-        scoreMap[index] = 0x03;
+        score_map[index] = 0x03;
         break;
     case 2:
-        scoreMap[index] = 0x04;
+        score_map[index] = 0x04;
         break;
     case 3:
-        scoreMap[index] = 0x05;
+        score_map[index] = 0x05;
         break;
     case 4:
-        scoreMap[index] = 0x06;
+        score_map[index] = 0x06;
         break;
     case 5:
-        scoreMap[index] = 0x07;
+        score_map[index] = 0x07;
         break;
     case 6:
-        scoreMap[index] = 0x08;
+        score_map[index] = 0x08;
         break;
     case 7:
-        scoreMap[index] = 0x09;
+        score_map[index] = 0x09;
         break;
     case 8:
-        scoreMap[index] = 0x0A;
+        score_map[index] = 0x0A;
         break;
     case 9:
-        scoreMap[index] = 0x0B;
+        score_map[index] = 0x0B;
         break;
-    
+
     default:
         break;
     }
 }
 
-void fall(struct character* character)
+void fall(struct character *character)
 {
-    if ((character->y < floorY - jumpDistance) && (character->isJumping == 1))
+    if ((character->y < floor_y - jump_distance) && (character->is_jumping == 1))
     {
-        character->speedY = maxDinosaurSpeedY;
-        maxDinosaurSpeedY += gravity;
+        character->speed_y = max_dinosaur_speed_y;
+        max_dinosaur_speed_y += gravity;
     }
-    if (character->y >= floorY)
+    if (character->y >= floor_y)
     {
-        character->isJumping = 0;
-        maxDinosaurSpeedY = 2;
+        character->is_jumping = 0;
+        max_dinosaur_speed_y = 2;
 
-        character->speedY = 0;
-        character->y = floorY;
+        character->speed_y = 0;
+        character->y = floor_y;
     }
 }
 
-void initDino()
+void init_dino()
 {
     set_sprite_data(0, 1, dino);
 
     dinosaur.x = 30;
-    dinosaur.y = floorY;
+    dinosaur.y = floor_y;
 
-    dinosaur.speedX = 0;
-    dinosaur.speedY = 0;
+    dinosaur.speed_x = 0;
+    dinosaur.speed_y = 0;
 
-    dinosaur.characterIndex = 0;
-    dinosaur.halfSize = 4;
+    dinosaur.index = 0;
+    dinosaur.half_size = 4;
 
     set_sprite_tile(0, 0);
-    move_sprite(dinosaur.characterIndex, dinosaur.x, dinosaur.y);
+    move_sprite(dinosaur.index, dinosaur.x, dinosaur.y);
 }
 
-void updateDino()
+void update_dino()
 {
-    dinosaur.x += dinosaur.speedX;
-    dinosaur.y += dinosaur.speedY;
+    dinosaur.x += dinosaur.speed_x;
+    dinosaur.y += dinosaur.speed_y;
 
-    scroll_sprite(dinosaur.characterIndex, dinosaur.speedX, dinosaur.speedY);
+    scroll_sprite(dinosaur.index, dinosaur.speed_x, dinosaur.speed_y);
     fall(&dinosaur);
 }
 
-void displayCactus(int index)
+void character_stop(struct character *character, int index)
 {
-    cactus[index].x = 50 + (index + 1) * (50 + (rand() % 3));
-    cactus[index].y = floorY;
-
-    cactus[index].speedX = maxCactusSpeedX;
-    cactus[index].speedY = 0;
-
-    cactus[index].characterIndex = index + 1;
-    cactus[index].halfSize = 4;
-
-    set_sprite_tile(index + 1, index + 1);
-    move_sprite(cactus[index].characterIndex, cactus[index].x, cactus[index].y);
+    character[index].speed_x = 0;
+    character[index].speed_y = 0;
 }
 
-void moveCactus(int index)
+void display_cactus(int index)
 {
-    cactus[index].x += -cactus[index].speedX;
-    cactus[index].y += cactus[index].speedY;
+    cactus[index].x = 50 + (index + 1) * (50 + (rand() % 3));
+    cactus[index].y = floor_y;
+
+    cactus[index].speed_x = max_cactus_speed_x;
+    cactus[index].speed_y = 0;
+
+    cactus[index].index = index + 1;
+    cactus[index].half_size = 4;
+
+    set_sprite_tile(index + 1, index + 1);
+    move_sprite(cactus[index].index, cactus[index].x, cactus[index].y);
+}
+
+void scroll_cactus(int index)
+{
+    cactus[index].x += -cactus[index].speed_x;
+    cactus[index].y += cactus[index].speed_y;
 
     if (cactus[index].x <= 0)
     {
         cactus[index].x = 50 + (index + 1) * (50 + (rand() % 3));
         set_sprite_tile(index + 1, index + 1);
 
-        move_sprite(cactus[index].characterIndex, cactus[index].x, cactus[index].y);
+        move_sprite(cactus[index].index, cactus[index].x, cactus[index].y);
     }
 
-    scroll_sprite(cactus[index].characterIndex, -cactus[index].speedX, cactus[index].speedY);
+    scroll_sprite(cactus[index].index, -cactus[index].speed_x, cactus[index].speed_y);
 }
 
-void stop(struct character* character, int index)
-{
-    character[index].speedX = 0;
-    character[index].speedY = 0;
-}
-
-void initCactus()
+void init_all_cactuses()
 {
     set_sprite_data(1, 2, cac);
     set_sprite_data(2, 3, cac);
     set_sprite_data(3, 4, cac);
     set_sprite_data(4, 5, cac);
     set_sprite_data(5, 6, cac);
-    
-    displayCactus(0);
-    displayCactus(1);
-    displayCactus(2);
-    displayCactus(3);
+
+    display_cactus(0);
+    display_cactus(1);
+    display_cactus(2);
+    display_cactus(3);
 }
 
-void updateCactus()
+void update_all_cactuses()
 {
-    moveCactus(0);
-    moveCactus(1);
-    moveCactus(2);
-    moveCactus(3);
+    scroll_cactus(0);
+    scroll_cactus(1);
+    scroll_cactus(2);
+    scroll_cactus(3);
 }
 
-BYTE checkCollision(struct character* character1, struct character* character2)
+BYTE check_collision(struct character *character1, struct character *character2)
 {
-    BYTE collideX = 0;
-    BYTE collideY = 0;
+    BYTE collide_x = 0;
+    BYTE collide_y = 0;
 
-    if (character1->x + character1->halfSize > character2->x - character2->halfSize)
+    if (character1->x + character1->half_size > character2->x - character2->half_size)
     {
-        if (character1->x - character1->halfSize < character2->x + character2->halfSize)
-        {
-            collideX = 1;
-        }
+        if (character1->x - character1->half_size < character2->x + character2->half_size)
+            collide_x = 1;
     }
-    if (character1->y + character1->halfSize > character2->y - character2->halfSize)
+    if (character1->y + character1->half_size > character2->y - character2->half_size)
     {
-        if (character1->y - character1->halfSize < character2->y + character2->halfSize)
-        {
-            collideY = 1;
-        }
+        if (character1->y - character1->half_size < character2->y + character2->half_size)
+            collide_y = 1;
     }
-    if (collideX == 1 && collideY == 1)
-    {
+    if (collide_x && collide_y)
         return 1;
-    }
+
     return 0;
 }
 
-void initFont()
+void init_font()
 {
     font_t font;
     font_init();
@@ -221,83 +208,78 @@ void initFont()
     font = font_load(font_min);
     font_set(font);
 
-    scoreMap[0] = 0x02;
-    scoreMap[1] = 0x01;
-    scoreMap[2] = 0x01;
-    scoreMap[3] = 0x01;
-    scoreMap[4] = 0x01;
-    scoreMap[5] = 0x01;
-    scoreMap[6] = 0x01;
-    scoreMap[7] = 0x01;
-    scoreMap[8] = 0x01;
+    score_map[0] = 0x02;
+    score_map[1] = 0x01;
+    score_map[2] = 0x01;
+    score_map[3] = 0x01;
+    score_map[4] = 0x01;
+    score_map[5] = 0x01;
+    score_map[6] = 0x01;
+    score_map[7] = 0x01;
+    score_map[8] = 0x01;
 
-    set_win_tiles(0, 0, 9, 1, scoreMap);
+    set_win_tiles(0, 0, 9, 1, score_map);
     move_win(7, 136);
 }
 
-void updateScore()
+void update_score()
 {
     if (score < 10)
     {
-        setScore(score, 0);
-
-        set_win_tiles(0, 0, 1, 1, scoreMap);
+        set_score(score, 0);
+        set_win_tiles(0, 0, 1, 1, score_map);
     }
     else if (score >= 10 && score < 100)
     {
-        setScore(score / 10, 0);
-        setScore(score % 10, 1);
+        set_score(score / 10, 0);
+        set_score(score % 10, 1);
 
-        set_win_tiles(0, 0, 2, 1, scoreMap);
+        set_win_tiles(0, 0, 2, 1, score_map);
     }
 }
 
-void gameOverAction()
+void game_over()
 {
-    set_win_tiles(0, 0, 9, 1, gameOverMap);
+    set_win_tiles(0, 0, 9, 1, game_over_map);
 }
 
-void initBackground()
+void init_background()
 {
     set_bkg_data(38, 4, mapTile);
     set_bkg_tiles(0, 0, 40, 18, map);
 }
 
-void updateBackground()
+void scroll_background()
 {
-    if (gameOver == 0)
-    {
-        scroll_bkg(maxCactusSpeedX, 0);
-    }
+    if (!is_game_over)
+        scroll_bkg(max_cactus_speed_x, 0);
 }
 
 void init()
 {
-    initFont();
-    initBackground();
+    init_font();
+    init_background();
 
-    initDino();
-    initCactus();
+    init_dino();
+    init_all_cactuses();
 
-    gameOver = 0;
+    is_game_over = 0;
     score = 0;
 }
 
 void addScore()
 {
     if (score < 99)
-    {
         score++;
-    }
 }
 
-void jump(struct character* character)
+void jump(struct character *character)
 {
-    if (character->isJumping == 0)
+    if (!character->is_jumping)
     {
-        character->speedY = -maxDinosaurSpeedY;
+        character->speed_y = -max_dinosaur_speed_y;
         addScore();
-        character->isJumping = 1;
+        character->is_jumping = 1;
     }
 }
 
@@ -307,7 +289,7 @@ void main()
 
     SHOW_WIN;
     SHOW_BKG;
-    
+
     SHOW_SPRITES;
     DISPLAY_ON;
 
@@ -315,39 +297,34 @@ void main()
     {
         if (joypad() & J_A)
         {
-            if (gameOver == 0)
-            {
+            if (!is_game_over)
                 jump(&dinosaur);
-            }
             else
-            {
                 init();
-            }
         }
-        if (gameOver == 0)
+        if (!is_game_over)
         {
-            updateBackground();
-            updateScore();
+            scroll_background();
+            update_score();
 
-            updateDino();
-            updateCactus();
+            update_dino();
+            update_all_cactuses();
 
-            if (checkCollision(&dinosaur, &cactus[0]) || checkCollision(&dinosaur, &cactus[1]) || checkCollision(&dinosaur, &cactus[2]) || checkCollision(&dinosaur, &cactus[3]))
+            if (check_collision(&dinosaur, &cactus[0]) || check_collision(&dinosaur, &cactus[1]) || check_collision(&dinosaur, &cactus[2]) || check_collision(&dinosaur, &cactus[3]))
             {
-                
-                stop(&cactus, 0);
-                stop(&cactus, 1);
-                stop(&cactus, 2);
-                stop(&cactus, 3);
 
-                stop(&dinosaur, 0);
+                character_stop(&cactus, 0);
+                character_stop(&cactus, 1);
+                character_stop(&cactus, 2);
+                character_stop(&cactus, 3);
 
-                gameOverAction();
-                gameOver = 1;
-                
+                character_stop(&dinosaur, 0);
+
+                game_over();
+                is_game_over = 1;
             }
         }
-        
-        performantDelay(3);
+
+        performant_delay(3);
     }
 }
