@@ -1,8 +1,8 @@
 #include <gb/gb.h>
-#include <stdio.h>
-#include <rand.h>
-#include <stdlib.h>
 #include <gb/font.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <rand.h>
 
 #include "dino_tile.c"
 #include "cactus_tile.c"
@@ -13,7 +13,7 @@
 #include "character.c"
 
 struct character dinosaur;
-struct character cactus[5];
+struct character cactuses[4];
 
 UINT8 floor_y = 107;
 
@@ -77,13 +77,17 @@ void set_score(int condition, int index)
     }
 }
 
+// make a character fall to gravity
 void fall(struct character *character)
 {
-    if ((character->y < floor_y - jump_distance) && (character->is_jumping == 1))
+    // if character is in the air
+    if ((character->y < floor_y - jump_distance) && (character->is_jumping))
     {
         character->speed_y = max_dinosaur_speed_y;
         max_dinosaur_speed_y += gravity;
     }
+
+    // if character is grounded
     if (character->y >= floor_y)
     {
         character->is_jumping = 0;
@@ -94,6 +98,14 @@ void fall(struct character *character)
     }
 }
 
+// stop a character
+void character_stop(struct character *character, int index)
+{
+    character[index].speed_x = 0;
+    character[index].speed_y = 0;
+}
+
+// initialize dinosaur
 void init_dino()
 {
     set_sprite_data(0, 1, dino);
@@ -111,52 +123,35 @@ void init_dino()
     move_sprite(dinosaur.index, dinosaur.x, dinosaur.y);
 }
 
+// update dinosaur
 void update_dino()
 {
     dinosaur.x += dinosaur.speed_x;
     dinosaur.y += dinosaur.speed_y;
 
+    // move dinosaur at vertical & horizontal speed
     scroll_sprite(dinosaur.index, dinosaur.speed_x, dinosaur.speed_y);
+    // make dinosaur fall to gravity
     fall(&dinosaur);
 }
 
-void character_stop(struct character *character, int index)
+// initialize cactus in cactuses array at index
+void init_cactus(int index)
 {
-    character[index].speed_x = 0;
-    character[index].speed_y = 0;
-}
+    cactuses[index].x = 50 + (index + 1) * (50 + (rand() % 3));
+    cactuses[index].y = floor_y;
 
-void display_cactus(int index)
-{
-    cactus[index].x = 50 + (index + 1) * (50 + (rand() % 3));
-    cactus[index].y = floor_y;
+    cactuses[index].speed_x = max_cactus_speed_x;
+    cactuses[index].speed_y = 0;
 
-    cactus[index].speed_x = max_cactus_speed_x;
-    cactus[index].speed_y = 0;
-
-    cactus[index].index = index + 1;
-    cactus[index].half_size = 4;
+    cactuses[index].index = index + 1;
+    cactuses[index].half_size = 4;
 
     set_sprite_tile(index + 1, index + 1);
-    move_sprite(cactus[index].index, cactus[index].x, cactus[index].y);
+    move_sprite(cactuses[index].index, cactuses[index].x, cactuses[index].y);
 }
 
-void scroll_cactus(int index)
-{
-    cactus[index].x += -cactus[index].speed_x;
-    cactus[index].y += cactus[index].speed_y;
-
-    if (cactus[index].x <= 0)
-    {
-        cactus[index].x = 50 + (index + 1) * (50 + (rand() % 3));
-        set_sprite_tile(index + 1, index + 1);
-
-        move_sprite(cactus[index].index, cactus[index].x, cactus[index].y);
-    }
-
-    scroll_sprite(cactus[index].index, -cactus[index].speed_x, cactus[index].speed_y);
-}
-
+// initialize all cactuses in cactuses array
 void init_all_cactuses()
 {
     set_sprite_data(1, 2, cac);
@@ -165,20 +160,39 @@ void init_all_cactuses()
     set_sprite_data(4, 5, cac);
     set_sprite_data(5, 6, cac);
 
-    display_cactus(0);
-    display_cactus(1);
-    display_cactus(2);
-    display_cactus(3);
+    init_cactus(0);
+    init_cactus(1);
+    init_cactus(2);
+    init_cactus(3);
 }
 
+// update cactus in cactuses array at index
+void update_cactus(int index)
+{
+    cactuses[index].x += -cactuses[index].speed_x;
+    cactuses[index].y += cactuses[index].speed_y;
+
+    if (cactuses[index].x <= 0)
+    {
+        cactuses[index].x = 50 + (index + 1) * (50 + (rand() % 3));
+        set_sprite_tile(index + 1, index + 1);
+
+        move_sprite(cactuses[index].index, cactuses[index].x, cactuses[index].y);
+    }
+
+    scroll_sprite(cactuses[index].index, -cactuses[index].speed_x, cactuses[index].speed_y);
+}
+
+// update all cactuses in cactuses array
 void update_all_cactuses()
 {
-    scroll_cactus(0);
-    scroll_cactus(1);
-    scroll_cactus(2);
-    scroll_cactus(3);
+    update_cactus(0);
+    update_cactus(1);
+    update_cactus(2);
+    update_cactus(3);
 }
 
+// check for collision between 2 characters based on positions and sizes
 BYTE check_collision(struct character *character1, struct character *character2)
 {
     BYTE collide_x = 0;
@@ -200,6 +214,7 @@ BYTE check_collision(struct character *character1, struct character *character2)
     return 0;
 }
 
+// initialize text font
 void init_font()
 {
     font_t font;
@@ -222,6 +237,13 @@ void init_font()
     move_win(7, 136);
 }
 
+void addScore(int amount)
+{
+    if (score < 99)
+        score += amount;
+}
+
+// update game score
 void update_score()
 {
     if (score < 10)
@@ -238,23 +260,27 @@ void update_score()
     }
 }
 
+// game over behaviour
 void game_over()
 {
     set_win_tiles(0, 0, 9, 1, game_over_map);
 }
 
+// initialize background tiles
 void init_background()
 {
     set_bkg_data(38, 4, mapTile);
     set_bkg_tiles(0, 0, 40, 18, map);
 }
 
+// scroll background to the left
 void scroll_background()
 {
     if (!is_game_over)
         scroll_bkg(max_cactus_speed_x, 0);
 }
 
+// initialize game
 void init()
 {
     init_font();
@@ -267,22 +293,17 @@ void init()
     score = 0;
 }
 
-void addScore()
-{
-    if (score < 99)
-        score++;
-}
-
+// character jump
 void jump(struct character *character)
 {
     if (!character->is_jumping)
     {
         character->speed_y = -max_dinosaur_speed_y;
-        addScore();
         character->is_jumping = 1;
+
+        addScore(1);
     }
 }
-
 void main()
 {
     init();
@@ -293,8 +314,10 @@ void main()
     SHOW_SPRITES;
     DISPLAY_ON;
 
+    // main game loop
     while (TRUE)
     {
+        // if A button pressed then dinosaur jump
         if (joypad() & J_A)
         {
             if (!is_game_over)
@@ -302,6 +325,8 @@ void main()
             else
                 init();
         }
+
+        // while game is not over, perform game logic
         if (!is_game_over)
         {
             scroll_background();
@@ -310,14 +335,14 @@ void main()
             update_dino();
             update_all_cactuses();
 
-            if (check_collision(&dinosaur, &cactus[0]) || check_collision(&dinosaur, &cactus[1]) || check_collision(&dinosaur, &cactus[2]) || check_collision(&dinosaur, &cactus[3]))
+            // if dinosaur collide with any cactuses then game over
+            if (check_collision(&dinosaur, &cactuses[0]) || check_collision(&dinosaur, &cactuses[1]) || check_collision(&dinosaur, &cactuses[2]) || check_collision(&dinosaur, &cactuses[3]))
             {
-
-                character_stop(&cactus, 0);
-                character_stop(&cactus, 1);
-                character_stop(&cactus, 2);
-                character_stop(&cactus, 3);
-
+                // stop all characters
+                character_stop(&cactuses, 0);
+                character_stop(&cactuses, 1);
+                character_stop(&cactuses, 2);
+                character_stop(&cactuses, 3);
                 character_stop(&dinosaur, 0);
 
                 game_over();
