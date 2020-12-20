@@ -108,7 +108,7 @@ void character_stop(struct character *character, int index)
 // initialize dinosaur
 void init_dino()
 {
-    set_sprite_data(0, 1, dino);
+    set_sprite_data(0, 1, dino_tile);
 
     dinosaur.x = 30;
     dinosaur.y = floor_y;
@@ -138,7 +138,7 @@ void update_dino()
 // initialize cactus in cactuses array at index
 void init_cactus(int index)
 {
-    cactuses[index].x = 50 + (index + 1) * (50 + (rand() % 3));
+    cactuses[index].x = 100 + (index + 1) + (50 * (rand() % 3 + 1));
     cactuses[index].y = floor_y;
 
     cactuses[index].speed_x = max_cactus_speed_x;
@@ -154,11 +154,11 @@ void init_cactus(int index)
 // initialize all cactuses in cactuses array
 void init_all_cactuses()
 {
-    set_sprite_data(1, 2, cac);
-    set_sprite_data(2, 3, cac);
-    set_sprite_data(3, 4, cac);
-    set_sprite_data(4, 5, cac);
-    set_sprite_data(5, 6, cac);
+    set_sprite_data(1, 2, cactus_tile);
+    set_sprite_data(2, 3, cactus_tile);
+    set_sprite_data(3, 4, cactus_tile);
+    set_sprite_data(4, 5, cactus_tile);
+    set_sprite_data(5, 6, cactus_tile);
 
     init_cactus(0);
     init_cactus(1);
@@ -169,16 +169,11 @@ void init_all_cactuses()
 // update cactus in cactuses array at index
 void update_cactus(int index)
 {
-    cactuses[index].x += -cactuses[index].speed_x;
+    cactuses[index].x -= cactuses[index].speed_x;
     cactuses[index].y += cactuses[index].speed_y;
 
     if (cactuses[index].x <= 0)
-    {
-        cactuses[index].x = 50 + (index + 1) * (50 + (rand() % 3));
-        set_sprite_tile(index + 1, index + 1);
-
-        move_sprite(cactuses[index].index, cactuses[index].x, cactuses[index].y);
-    }
+        init_cactus(index);
 
     scroll_sprite(cactuses[index].index, -cactuses[index].speed_x, cactuses[index].speed_y);
 }
@@ -317,8 +312,8 @@ void main()
     // main game loop
     while (TRUE)
     {
-        // if A button pressed then dinosaur jump
-        if (joypad() & J_A)
+        // if A button or B button or DPad up pressed then dinosaur jump
+        if (joypad() & J_A || joypad() & J_B || joypad() & J_UP)
         {
             if (!is_game_over)
                 jump(&dinosaur);
@@ -339,10 +334,10 @@ void main()
             if (check_collision(&dinosaur, &cactuses[0]) || check_collision(&dinosaur, &cactuses[1]) || check_collision(&dinosaur, &cactuses[2]) || check_collision(&dinosaur, &cactuses[3]))
             {
                 // stop all characters
-                character_stop(&cactuses, 0);
-                character_stop(&cactuses, 1);
-                character_stop(&cactuses, 2);
-                character_stop(&cactuses, 3);
+                character_stop(&cactuses[0], 0);
+                character_stop(&cactuses[1], 0);
+                character_stop(&cactuses[2], 0);
+                character_stop(&cactuses[3], 0);
                 character_stop(&dinosaur, 0);
 
                 game_over();

@@ -1,0 +1,81 @@
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (GameBoy Z80-like CPU), page 1.
+Hexadecimal [24-Bits]
+
+Symbol Table
+
+    .__.$$$.                                                    =  002710 L
+    .__.ABS.                                                    =  000000 G
+    .__.CPU.                                                    =  000000 L
+    .__.H$L.                                                    =  000000 L
+    _LCDC_REG                                                      ****** GX
+    _SCX_REG                                                       ****** GX
+    _WX_REG                                                        ****** GX
+    _WY_REG                                                        ****** GX
+    __divsint                                                      ****** GX
+    __modsint                                                      ****** GX
+  0 _addScore                                                      0005A3 GR
+  1 _cactus_tile                                                   000020 GR
+  1 _cactuses                                                      000357 GR
+  0 _character_stop                                                000195 GR
+  0 _check_collision                                               0003E1 GR
+  1 _dino_tile                                                     000000 GR
+  1 _dinosaur                                                      000350 GR
+  0 _fall                                                          0000EB GR
+  1 _floor_y                                                       000373 GR
+    _font_init                                                     ****** GX
+    _font_load                                                     ****** GX
+    _font_min                                                      ****** GX
+    _font_set                                                      ****** GX
+  0 _game_over                                                     00062D GR
+  1 _game_over_map                                                 000383 GR
+  1 _gravity                                                       000375 GR
+  0 _init                                                          000671 GR
+  0 _init_all_cactuses                                             0002E4 GR
+  0 _init_background                                               000641 GR
+  0 _init_cactus                                                   000246 GR
+  0 _init_dino                                                     0001B9 GR
+  0 _init_font                                                     00054A GR
+  1 _is_game_over                                                  000378 GR
+    _joypad                                                        ****** GX
+  0 _jump                                                          000688 GR
+  1 _jump_distance                                                 000374 GR
+  0 _main                                                          0006B2 GR
+  1 _map                                                           000080 GR
+  1 _mapTile                                                       000040 GR
+  1 _max_cactus_speed_x                                            000377 GR
+  1 _max_dinosaur_speed_y                                          000376 GR
+  0 _performant_delay                                              000000 GR
+    _rand                                                          ****** GX
+  1 _score                                                         000379 GR
+  1 _score_map                                                     00037A GR
+  0 _scroll_background                                             000662 GR
+    _set_bkg_data                                                  ****** GX
+    _set_bkg_tiles                                                 ****** GX
+  0 _set_score                                                     00000D GR
+    _set_sprite_data                                               ****** GX
+    _set_win_tiles                                                 ****** GX
+    _shadow_OAM                                                    ****** GX
+  0 _update_all_cactuses                                           0003BC GR
+  0 _update_cactus                                                 00033E GR
+  0 _update_dino                                                   00020F GR
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (GameBoy Z80-like CPU), page 2.
+Hexadecimal [24-Bits]
+
+Symbol Table
+
+  0 _update_score                                                  0005B3 GR
+    _wait_vbl_done                                                 ****** GX
+
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (GameBoy Z80-like CPU), page 3.
+Hexadecimal [24-Bits]
+
+Area Table
+
+   0 _CODE                                      size    7A1   flags    0
+   1 _DATA                                      size    38C   flags    0
+   2 _DABS                                      size      0   flags    8
+   3 _HOME                                      size      0   flags    0
+   4 _GSINIT                                    size   1108   flags    0
+   5 _GSFINAL                                   size      0   flags    0
+   6 _CABS                                      size      0   flags    8
+

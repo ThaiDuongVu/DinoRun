@@ -26,6 +26,6 @@
 /* Bank of tiles. */
 #define catusBank 0
 /* Start of tile array. */
-extern unsigned char catus[];
+extern unsigned char catus_tile[];
 
-/* End of CAC.H */
+/* End of CACTUS_TILE.H */

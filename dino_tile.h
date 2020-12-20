@@ -26,6 +26,6 @@
 /* Bank of tiles. */
 #define dinoBank 0
 /* Start of tile array. */
-extern unsigned char dino[];
+extern unsigned char dino_tile[];
 
-/* End of DINO.H */
+/* End of DINO_TILE.H */
